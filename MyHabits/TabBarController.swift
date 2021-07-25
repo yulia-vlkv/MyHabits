@@ -5,12 +5,14 @@
 //  Created by Iuliia Volkova on 25.07.2021.
 //
 
+import  UIKit
+
 class HabitsTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
         UITabBar.appearance().barTintColor = .systemBackground
-        tabBar.tintColor = .label
+        tabBar.tintColor = UIColor(named: "awesomePurple")
         delegate = self
     }
 
