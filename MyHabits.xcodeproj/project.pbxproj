@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BCCB626AD46A700E276AA /* HabitsStore.swift */; };
 		EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940626AD3A570012943B /* AppDelegate.swift */; };
 		EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940826AD3A570012943B /* SceneDelegate.swift */; };
 		EFF0940B26AD3A570012943B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940A26AD3A570012943B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF4BCCB626AD46A700E276AA /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
 		EFF0940326AD3A570012943B /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF0940626AD3A570012943B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFF0940826AD3A570012943B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				EFF0940626AD3A570012943B /* AppDelegate.swift */,
 				EFF0940826AD3A570012943B /* SceneDelegate.swift */,
+				EF4BCCB626AD46A700E276AA /* HabitsStore.swift */,
 				EFF0940A26AD3A570012943B /* ViewController.swift */,
 				EFF0940C26AD3A570012943B /* Main.storyboard */,
 				EFF0940F26AD3A580012943B /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */,
 				EFF0940B26AD3A570012943B /* ViewController.swift in Sources */,
 				EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */,
 				EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */,
