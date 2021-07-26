@@ -8,10 +8,34 @@
 import UIKit
 
 class HabitViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Привычки"
-        view.backgroundColor = .cyan
+        view.backgroundColor = UIColor(named: "backgroundColor")
+        
+        setNavigationBar()
+        setStatusBarColor(color: UIColor(displayP3Red: 247, green: 247, blue: 247, alpha: 0.8))
+        }
+
+    private func setNavigationBar(){
+        self.navigationController!.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Сегодня"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addHabit))
+        self.navigationController!.navigationBar.tintColor = UIColor(named: "awesomePurple")
+        self.navigationController!.navigationBar.backgroundColor = UIColor(displayP3Red: 247, green: 247, blue: 247, alpha: 0.8)
     }
+
+    @objc func addHabit(){
+        
+    }
+    
+    private func setStatusBarColor(color: UIColor){
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = color
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
+    }
+    
 }

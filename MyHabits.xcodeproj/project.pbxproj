@@ -10,6 +10,8 @@
 		EF25538C26AD6F3F00862FFD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538B26AD6F3F00862FFD /* TabBarController.swift */; };
 		EF25538E26AD6F7A00862FFD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538D26AD6F7A00862FFD /* InfoViewController.swift */; };
 		EF25539026AD6FA900862FFD /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538F26AD6FA900862FFD /* HabitViewController.swift */; };
+		EF3E3D3D26AEA7B400E4B48C /* InfoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D3C26AEA7B400E4B48C /* InfoArray.swift */; };
+		EF3E3D3F26AEF95B00E4B48C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D3E26AEF95B00E4B48C /* NavigationViewController.swift */; };
 		EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BCCB626AD46A700E276AA /* HabitsStore.swift */; };
 		EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940626AD3A570012943B /* AppDelegate.swift */; };
 		EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940826AD3A570012943B /* SceneDelegate.swift */; };
@@ -21,6 +23,8 @@
 		EF25538B26AD6F3F00862FFD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EF25538D26AD6F7A00862FFD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EF25538F26AD6FA900862FFD /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
+		EF3E3D3C26AEA7B400E4B48C /* InfoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoArray.swift; sourceTree = "<group>"; };
+		EF3E3D3E26AEF95B00E4B48C /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		EF4BCCB626AD46A700E276AA /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
 		EFF0940326AD3A570012943B /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF0940626AD3A570012943B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,8 +68,10 @@
 				EFF0940826AD3A570012943B /* SceneDelegate.swift */,
 				EF4BCCB626AD46A700E276AA /* HabitsStore.swift */,
 				EF25538D26AD6F7A00862FFD /* InfoViewController.swift */,
+				EF3E3D3C26AEA7B400E4B48C /* InfoArray.swift */,
 				EF25538F26AD6FA900862FFD /* HabitViewController.swift */,
 				EF25538B26AD6F3F00862FFD /* TabBarController.swift */,
+				EF3E3D3E26AEF95B00E4B48C /* NavigationViewController.swift */,
 				EFF0940F26AD3A580012943B /* Assets.xcassets */,
 				EFF0941126AD3A580012943B /* LaunchScreen.storyboard */,
 				EFF0941426AD3A580012943B /* Info.plist */,
@@ -142,10 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3E3D3F26AEF95B00E4B48C /* NavigationViewController.swift in Sources */,
 				EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */,
 				EF25539026AD6FA900862FFD /* HabitViewController.swift in Sources */,
 				EF25538E26AD6F7A00862FFD /* InfoViewController.swift in Sources */,
 				EF25538C26AD6F3F00862FFD /* TabBarController.swift in Sources */,
+				EF3E3D3D26AEA7B400E4B48C /* InfoArray.swift in Sources */,
 				EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */,
 				EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */,
 			);
