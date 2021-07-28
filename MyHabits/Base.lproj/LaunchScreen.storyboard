@@ -28,7 +28,7 @@
                                 <rect key="frame" x="163" y="762" width="88" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Cws-vW-JdO"/>
-                                    <constraint firstAttribute="width" constant="88" id="jrP-nW-11n"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="jrP-nW-11n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="awesomePurple"/>

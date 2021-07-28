@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitViewController: UIViewController {
+class HabitsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,10 @@ class HabitViewController: UIViewController {
     }
 
     @objc func addHabit(){
-        
+        let habitsCreateVC = HabitsCreateViewController()
+        let habitsCreateNavVC = UINavigationController(rootViewController: habitsCreateVC)
+        habitsCreateNavVC.modalPresentationStyle = .fullScreen
+        present(habitsCreateNavVC, animated: true)
     }
     
     private func setStatusBarColor(color: UIColor){

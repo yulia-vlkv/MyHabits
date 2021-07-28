@@ -20,7 +20,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     private func setupTabBar(){
-        let habitTab = HabitViewController()
+        let habitTab = HabitsViewController()
         habitTab.tabBarItem = UITabBarItem(title: self.title, image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
         let infoTab = InfoViewController()
         infoTab.tabBarItem = UITabBarItem(title: self.title, image: UIImage(systemName: "info.circle.fill"), tag: 1)
