@@ -39,7 +39,12 @@ class InfoViewController: UIViewController {
         text.textColor = .black
         text.textAlignment = .left
         text.isScrollEnabled = false
-        text.isEditable = false
+        let padding = text.textContainer.lineFragmentPadding
+        text.textContainerInset = UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
+        let style = NSMutableParagraphStyle()
+        style.paragraphSpacing = 12
+        let attributes = [NSAttributedString.Key.paragraphStyle: style]
+        text.attributedText = NSAttributedString(string: text.text, attributes: attributes)
         text.toAutoLayout()
         return text
     }()
