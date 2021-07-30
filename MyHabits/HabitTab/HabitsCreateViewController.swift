@@ -30,7 +30,7 @@ class HabitsCreateViewController: UIViewController {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textField.layer.borderColor = UIColor.white.cgColor
-        textField.textColor = .systemGray2
+        textField.textColor = .blue
         textField.placeholder = "Бегать по утрам, спать 8 часов и т.п."
         textField.returnKeyType = UIReturnKeyType.done
         textField.toAutoLayout()
@@ -66,17 +66,6 @@ class HabitsCreateViewController: UIViewController {
     
     private let timePickerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Каждый день в "
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        label.toAutoLayout()
-        return label
-    }()
-
-    private let timeSelectedLabel: UILabel = {
-        let label = UILabel()
-        label.text = ""
-        label.textColor = UIColor(named: "awesomePurple")
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.toAutoLayout()
         return label
     }()
@@ -102,8 +91,11 @@ class HabitsCreateViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .none
-        
-        timeSelectedLabel.text = formatter.string(from: timePicker.date)
+        let textStr = NSMutableAttributedString(string: "Каждый день в ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)])
+        let selectedTime = formatter.string(from: timePicker.date)
+        let dateStr = NSAttributedString(string: selectedTime, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor(named: "awesomePurple")!])
+        textStr.append(dateStr)
+        timePickerLabel.attributedText = textStr
     }
     
     override func viewDidLoad() {
@@ -114,6 +106,7 @@ class HabitsCreateViewController: UIViewController {
         
         setupViews()
         setupColorPicker()
+        chooseTime()
     }
     
     private func setupViews(){
@@ -122,7 +115,7 @@ class HabitsCreateViewController: UIViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(habitView)
-        habitView.addSubviews(nameLabel, habitTextField, colorLabel, colorButton, timeLabel, timePickerLabel, timeSelectedLabel, timePicker)
+        habitView.addSubviews(nameLabel, habitTextField, colorLabel, colorButton, timeLabel, timePickerLabel, timePicker)
         
         let constraints = [
             
@@ -156,16 +149,13 @@ class HabitsCreateViewController: UIViewController {
             
             timeLabel.topAnchor.constraint(equalTo: colorButton.bottomAnchor, constant: anotherVerticalInset),
             timeLabel.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            timeLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -312),
+            timeLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
             
             timePickerLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: verticalInset),
             timePickerLabel.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            timePickerLabel.trailingAnchor.constraint(equalTo: timeSelectedLabel.leadingAnchor, constant: -1),
+            timePickerLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
             
-            timeSelectedLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: verticalInset),
-            timeSelectedLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -150),
-            
-            timePicker.topAnchor.constraint(equalTo: timeSelectedLabel.bottomAnchor, constant: anotherVerticalInset),
+            timePicker.topAnchor.constraint(equalTo: timePickerLabel.bottomAnchor, constant: anotherVerticalInset),
             timePicker.leadingAnchor.constraint(equalTo: habitView.leadingAnchor),
             timePicker.trailingAnchor.constraint(equalTo: habitView.trailingAnchor),
             timePicker.bottomAnchor.constraint(equalTo: habitView.bottomAnchor)

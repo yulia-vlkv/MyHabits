@@ -13,18 +13,18 @@ class HabitsViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Привычки"
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = SelectedColors.setColor(style: .almostWhite)
         
         setNavigationBar()
-        setStatusBarColor(color: UIColor(displayP3Red: 247, green: 247, blue: 247, alpha: 0.8))
+        setStatusBarColor(color: SelectedColors.setColor(style: .almostWhiteButForNavBar))
         }
 
     private func setNavigationBar(){
         self.navigationController!.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Сегодня"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addHabit))
-        self.navigationController!.navigationBar.tintColor = UIColor(named: "awesomePurple")
-        self.navigationController!.navigationBar.backgroundColor = UIColor(displayP3Red: 247, green: 247, blue: 247, alpha: 0.8)
+        self.navigationController!.navigationBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
+        self.navigationController!.navigationBar.backgroundColor = SelectedColors.setColor(style: .almostWhiteButForNavBar)
     }
 
     @objc func addHabit(){

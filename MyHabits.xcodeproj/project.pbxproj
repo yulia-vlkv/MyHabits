@@ -15,6 +15,7 @@
 		EF3E3D4626B0567800E4B48C /* toAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */; };
 		EF3E3D4826B056E100E4B48C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4726B056E100E4B48C /* addSubviews.swift */; };
 		EF3E3D4F26B05BCF00E4B48C /* HabitsCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4E26B05BCF00E4B48C /* HabitsCreateViewController.swift */; };
+		EF3E3D5126B3D48C00E4B48C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D5026B3D48C00E4B48C /* Colors.swift */; };
 		EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4BCCB626AD46A700E276AA /* HabitsStore.swift */; };
 		EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940626AD3A570012943B /* AppDelegate.swift */; };
 		EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0940826AD3A570012943B /* SceneDelegate.swift */; };
@@ -31,6 +32,7 @@
 		EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toAutoLayout.swift; sourceTree = "<group>"; };
 		EF3E3D4726B056E100E4B48C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 		EF3E3D4E26B05BCF00E4B48C /* HabitsCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCreateViewController.swift; sourceTree = "<group>"; };
+		EF3E3D5026B3D48C00E4B48C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EF4BCCB626AD46A700E276AA /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
 		EFF0940326AD3A570012943B /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF0940626AD3A570012943B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				EF3E3D3C26AEA7B400E4B48C /* InfoText.swift */,
 				EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */,
 				EF3E3D4726B056E100E4B48C /* addSubviews.swift */,
+				EF3E3D5026B3D48C00E4B48C /* Colors.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF3E3D3F26AEF95B00E4B48C /* NavigationViewController.swift in Sources */,
+				EF3E3D5126B3D48C00E4B48C /* Colors.swift in Sources */,
 				EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */,
 				EF25539026AD6FA900862FFD /* HabitsViewController.swift in Sources */,
 				EF3E3D4826B056E100E4B48C /* addSubviews.swift in Sources */,

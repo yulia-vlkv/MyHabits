@@ -12,8 +12,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UITabBar.appearance().barTintColor = UIColor(displayP3Red: 247, green: 247, blue: 247, alpha: 0.8)
-        tabBar.tintColor = UIColor(named: "awesomePurple")
+        UITabBar.appearance().barTintColor = SelectedColors.setColor(style: .almostWhiteButForNavBar)
+        tabBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
         delegate = self
 
         setupTabBar()

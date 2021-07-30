@@ -88,5 +88,4 @@ class InfoViewController: UIViewController {
 
         NSLayoutConstraint.activate(constraints)
     }
-    
 }
