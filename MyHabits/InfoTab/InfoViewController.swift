@@ -35,7 +35,6 @@ class InfoViewController: UIViewController {
     private let text: UITextView = {
         let text = UITextView()
         text.text = infoText
-        text.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         text.textColor = .black
         text.textAlignment = .left
         text.isScrollEnabled = false
@@ -43,7 +42,7 @@ class InfoViewController: UIViewController {
         text.textContainerInset = UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
         let style = NSMutableParagraphStyle()
         style.paragraphSpacing = 12
-        let attributes = [NSAttributedString.Key.paragraphStyle: style]
+        let attributes = [NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
         text.attributedText = NSAttributedString(string: text.text, attributes: attributes)
         text.toAutoLayout()
         return text

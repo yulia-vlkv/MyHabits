@@ -21,9 +21,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     private func setupTabBar(){
         let habitTab = HabitsViewController()
-        habitTab.tabBarItem = UITabBarItem(title: self.title, image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
+        habitTab.tabBarItem = UITabBarItem(title: "Привычки", image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
         let infoTab = InfoViewController()
-        infoTab.tabBarItem = UITabBarItem(title: self.title, image: UIImage(systemName: "info.circle.fill"), tag: 1)
+        infoTab.tabBarItem = UITabBarItem(title: "Информация", image: UIImage(systemName: "info.circle.fill"), tag: 1)
         let habitNavVC = UINavigationController(rootViewController: habitTab)
         let infoNavVC = UINavigationController(rootViewController: infoTab)
         self.viewControllers = [habitNavVC, infoNavVC]

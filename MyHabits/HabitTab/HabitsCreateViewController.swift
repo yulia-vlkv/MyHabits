@@ -107,6 +107,8 @@ class HabitsCreateViewController: UIViewController {
         setupViews()
         setupColorPicker()
         chooseTime()
+        
+        setNavigationBar()
     }
     
     private func setupViews(){
@@ -168,6 +170,26 @@ class HabitsCreateViewController: UIViewController {
     private func setupColorPicker(){
         colorPicker.selectedColor = colorButton.backgroundColor!
         colorPicker.delegate = self
+    }
+    
+    // Настройки NavigationBar
+    private func setNavigationBar(){
+        self.navigationItem.title = "Создать"
+        self.navigationController!.navigationBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
+        self.navigationController!.navigationBar.backgroundColor = SelectedColors.setColor(style: .almostWhiteButForNavBar)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addHabit))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(save))
+    }
+    
+    @objc private func cancel() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func save() {
+        let newHabit = Habit(name: habitTextField.text ?? "Моя новая привычка", date: timePicker.date, color: colorPicker.selectedColor)
+        HabitsStore.shared.habits.append(newHabit)
+        cancel()
     }
     
     // Для клавиатуры.
