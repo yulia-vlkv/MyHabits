@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitsCreateViewController: UIViewController {
+class HabitViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     
@@ -223,14 +223,14 @@ class HabitsCreateViewController: UIViewController {
 }
 
 // Расширение для клавиатуры
-extension HabitsCreateViewController {
+extension HabitViewController  {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
 
-extension HabitsCreateViewController: UIColorPickerViewControllerDelegate {
+extension HabitViewController : UIColorPickerViewControllerDelegate {
     
     //  Вызывается, когда цвет выбран (перебор цвета).
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
