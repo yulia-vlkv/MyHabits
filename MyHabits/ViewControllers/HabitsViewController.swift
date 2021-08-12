@@ -14,8 +14,6 @@ class HabitsViewController: UIViewController {
     let store = HabitsStore.shared
     let appearance = UINavigationBarAppearance()
     
-//    private lazy var tableView = UITableView(frame: .zero, style: .plain)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,9 +22,6 @@ class HabitsViewController: UIViewController {
         setupAppearance()
         setupCollectionView()
         
-//        setNavigationBar()
-//        setTableView()
-//        setStatusBarColor(color: SelectedColors.setColor(style: .almostWhiteButForNavBar))
         }
     
     private func setupAppearance(){
@@ -69,45 +64,10 @@ class HabitsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        HabitsStore.shared.habits.sort(by: { $0.date < $1.date })
-//        habitsCollectionView.reloadData()
+        HabitsStore.shared.habits.sort(by: { $0.date < $1.date })
+        habitsCollectionView.reloadData()
         
     }
-
-//    private func setNavigationBar(){
-//        self.navigationController!.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.title = "Сегодня"
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addHabit))
-//        self.navigationController!.navigationBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
-//        self.navigationController!.navigationBar.backgroundColor = SelectedColors.setColor(style: .almostWhiteButForNavBar)
-//    }
-
-    
-//    private func setTableView(){
-//        view.addSubview(tableView)
-//        tableView.toAutoLayout()
-//        tableView.backgroundColor = SelectedColors.setColor(style: .almostWhite)
-//        tableView.dataSource = self
-//        tableView.register(StatusTableCell.self, forCellReuseIdentifier: String(describing: StatusTableCell.self))
-//        tableView.register(HabitTableCell.self, forCellReuseIdentifier: String(describing: HabitTableCell.self))
-//
-//        let constraints = [
-//            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ]
-//
-//        NSLayoutConstraint.activate(constraints)
-//    }
-    
-//    private func setStatusBarColor(color: UIColor){
-//        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
-//        let statusBarColor = color
-//        statusBarView.backgroundColor = statusBarColor
-//        view.addSubview(statusBarView)
-//    }
-    
 }
 
 
@@ -132,24 +92,21 @@ extension HabitsViewController: UICollectionViewDataSource {
 
         case 0:
             let progressCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgressCollectionViewCell.self), for: indexPath) as! ProgressCollectionViewCell
-//            progressCell.updateProgress()
+            progressCell.updateProgress()
             
             return progressCell
         default:
             let habitCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as! HabitCollectionViewCell
             
-//            habitCell.habit = store.habits[indexPath.item]
-//            habitCell.isChecked = { self.habitsCollectionView.reloadData() }
-            
+            habitCell.habit = store.habits[indexPath.item]
             return habitCell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
-//        case 1: let vc = HabitDetailsViewController(habit: store.habits[indexPath.row])
-//            navigationController?.pushViewController(vc, animated: true)
-
+        case 1: let vc = HabitDetailsViewController(habit: store.habits[indexPath.row])
+            navigationController?.pushViewController(vc, animated: true)
         default: break
             
         }
@@ -186,35 +143,3 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
-
-
-
-
-//extension HabitsViewController: UITableViewDataSource{
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if section == 0 {
-//            return 1
-//        } else {
-//            return HabitsStore.shared.habits.count
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.section == 0 {
-//            let cell: StatusTableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: StatusTableCell.self), for: indexPath) as! StatusTableCell
-//            // добавить что-то, чтобы передать содержание ячеек
-//            return cell
-//        } else {
-//            let cell: HabitTableCell = tableView.dequeueReusableCell(withIdentifier: String(describing: HabitTableCell.self), for: indexPath) as! HabitTableCell
-//            // добавить что-то, чтобы передать содержание ячеек
-//            return cell
-//        }
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//}

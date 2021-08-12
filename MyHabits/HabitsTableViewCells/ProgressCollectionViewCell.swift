@@ -9,15 +9,6 @@ import UIKit
 
 class ProgressCollectionViewCell: UICollectionViewCell {
     
-//    private let insetView: UIView = {
-//        let view = UIView()
-//        view.layer.cornerRadius = 8
-//        view.backgroundColor = .white
-//        view.clipsToBounds = true
-//        view.toAutoLayout()
-//        return view
-//    }()
-    
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.text = "Всё получится!"
@@ -56,6 +47,11 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         setupViews()
     }
     
+    func updateProgress() {
+        progressBar.setProgress(HabitsStore.shared.todayProgress, animated: false)
+        percentLabel.text = "\(Int(HabitsStore.shared.todayProgress * 100))%"
+    }
+    
     func setupViews() {
         
         contentView.addSubviews(titleLabel, percentLabel, progressBar)
@@ -66,7 +62,7 @@ class ProgressCollectionViewCell: UICollectionViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            titleLabel.trailingAnchor.constraint(equalTo: percentLabel.trailingAnchor, constant: -8),
             
             percentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             percentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
@@ -78,10 +74,5 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         ]
         
         NSLayoutConstraint.activate(constraints)
-    }
-    
-    func updateProgress() {
-        progressBar.setProgress(HabitsStore.shared.todayProgress, animated: false)
-        percentLabel.text = "\(Int(HabitsStore.shared.todayProgress * 100))%"
     }
 }
