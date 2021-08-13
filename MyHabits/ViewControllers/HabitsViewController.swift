@@ -24,6 +24,7 @@ class HabitsViewController: UIViewController {
         
         }
     
+    // Настройки NavigationBar
     private func setupAppearance(){
         navigationItem.title = "Сегодня"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -64,9 +65,9 @@ class HabitsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         HabitsStore.shared.habits.sort(by: { $0.date < $1.date })
         habitsCollectionView.reloadData()
-        
     }
 }
 
