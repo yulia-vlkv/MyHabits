@@ -145,7 +145,6 @@ class HabitViewController: UIViewController {
             removeButton.isHidden = false
         }
         else {
-            habitTextField.text  = ""
             colorButton.backgroundColor = SelectedColors.setColor(style: .orange)
             timePicker.date = Date()
             navigationItem.title = "Создать"

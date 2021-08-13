@@ -9,6 +9,8 @@ import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
         
+    var isChecked: (() -> Void)?
+    
     var habit: Habit? {
         didSet {
             habitNameLabel.text = habit?.name
@@ -78,6 +80,9 @@ class HabitCollectionViewCell: UICollectionViewCell {
             checkButton.backgroundColor = self.habit?.color
             checkmarkSetup()
             counterValueLabel.text = "\(habit.trackDates.count)"
+            if let trackHabit = isChecked {
+                trackHabit()
+            }
         }
     }
         

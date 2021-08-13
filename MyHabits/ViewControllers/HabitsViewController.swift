@@ -90,16 +90,14 @@ extension HabitsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPath.section{
-
         case 0:
             let progressCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgressCollectionViewCell.self), for: indexPath) as! ProgressCollectionViewCell
             progressCell.updateProgress()
-            
             return progressCell
         default:
             let habitCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as! HabitCollectionViewCell
-            
             habitCell.habit = store.habits[indexPath.item]
+            habitCell.isChecked = { self.habitsCollectionView.reloadData() }
             return habitCell
         }
     }
