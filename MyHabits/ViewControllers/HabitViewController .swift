@@ -39,6 +39,7 @@ class HabitViewController: UIViewController {
         textField.textColor = .blue
         textField.placeholder = "Бегать по утрам, спать 8 часов и т.п."
         textField.returnKeyType = UIReturnKeyType.done
+        textField.addTarget(self, action: #selector(updateSaveButtonState), for: .editingChanged)
         textField.toAutoLayout()
         return textField
     }()
@@ -160,6 +161,7 @@ class HabitViewController: UIViewController {
         
         setNavigationBar()
         editHabit()
+        updateSaveButtonState()
         setupViews()
         setupColorPicker()
         chooseTime()
@@ -199,6 +201,12 @@ class HabitViewController: UIViewController {
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
         cancel()
+    }
+    
+    @objc private func updateSaveButtonState() {
+        if let text = habitTextField.text {
+            self.navigationItem.rightBarButtonItem?.isEnabled = !text.isEmpty
+        }
     }
     
     private func setupViews(){
