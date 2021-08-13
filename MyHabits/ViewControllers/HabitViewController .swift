@@ -27,14 +27,14 @@ class HabitViewController: UIViewController {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "НАЗВАНИЕ"
-        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
         label.toAutoLayout()
         return label
     }()
 
     private let habitTextField: UITextField = {
         let textField = UITextField()
-        textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        textField.font = SelectedFonts.setFont(style: .Body)
         textField.layer.borderColor = UIColor.white.cgColor
         textField.textColor = .blue
         textField.placeholder = "Бегать по утрам, спать 8 часов и т.п."
@@ -46,7 +46,7 @@ class HabitViewController: UIViewController {
     private let colorLabel: UILabel = {
         let label = UILabel()
         label.text = "ЦВЕТ"
-        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
         label.toAutoLayout()
         return label
     }()
@@ -71,7 +71,7 @@ class HabitViewController: UIViewController {
     private let timeLabel: UILabel = {
         let label = UILabel()
         label.text = "ВРЕМЯ"
-        label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
         label.toAutoLayout()
         return label
     }()
@@ -95,9 +95,9 @@ class HabitViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .none
-        let textStr = NSMutableAttributedString(string: "Каждый день в ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)])
+        let textStr = NSMutableAttributedString(string: "Каждый день в ", attributes: [NSAttributedString.Key.font: SelectedFonts.setFont(style: .Body)])
         let selectedTime = formatter.string(from: timePicker.date)
-        let dateStr = NSAttributedString(string: selectedTime, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor(named: "awesomePurple")!])
+        let dateStr = NSAttributedString(string: selectedTime, attributes: [NSAttributedString.Key.font: SelectedFonts.setFont(style: .Body), NSAttributedString.Key.foregroundColor: UIColor(named: "awesomePurple")!])
         textStr.append(dateStr)
         timePickerLabel.attributedText = textStr
     }

@@ -25,7 +25,7 @@ class InfoViewController: UIViewController {
     private let textTitle: UILabel = {
         let title = UILabel()
         title.text = infoTitle
-        title.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        title.font = SelectedFonts.setFont(style: .Title)
         title.textColor = .black
         title.textAlignment = .left
         title.toAutoLayout()
@@ -42,7 +42,7 @@ class InfoViewController: UIViewController {
         text.textContainerInset = UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
         let style = NSMutableParagraphStyle()
         style.paragraphSpacing = 12
-        let attributes = [NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)]
+        let attributes = [NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: SelectedFonts.setFont(style: .Body)]
         text.attributedText = NSAttributedString(string: text.text, attributes: attributes)
         text.toAutoLayout()
         return text
