@@ -28,7 +28,7 @@ class HabitViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 15
         stackView.toAutoLayout()
         return stackView
@@ -38,7 +38,7 @@ class HabitViewController: UIViewController {
         let subStackView = UIStackView()
         subStackView.axis = .vertical
         subStackView.alignment = .leading
-        subStackView.distribution = .fillProportionally
+        subStackView.distribution = .fill
         subStackView.spacing = 7
         subStackView.toAutoLayout()
         subStackView.addArrangedSubview(title)
@@ -260,7 +260,11 @@ class HabitViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
             
             removeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            removeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18)
+            removeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18),
+            
+            colorButton.widthAnchor.constraint(equalToConstant: 30),
+            colorButton.heightAnchor.constraint(equalToConstant: 30)
+            
         ]
         
         NSLayoutConstraint.activate(constraints)
