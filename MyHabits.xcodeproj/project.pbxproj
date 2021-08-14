@@ -11,7 +11,6 @@
 		EF25538E26AD6F7A00862FFD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538D26AD6F7A00862FFD /* InfoViewController.swift */; };
 		EF25539026AD6FA900862FFD /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538F26AD6FA900862FFD /* HabitsViewController.swift */; };
 		EF3E3D3D26AEA7B400E4B48C /* InfoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D3C26AEA7B400E4B48C /* InfoText.swift */; };
-		EF3E3D3F26AEF95B00E4B48C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D3E26AEF95B00E4B48C /* NavigationViewController.swift */; };
 		EF3E3D4626B0567800E4B48C /* toAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */; };
 		EF3E3D4826B056E100E4B48C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4726B056E100E4B48C /* addSubviews.swift */; };
 		EF3E3D4F26B05BCF00E4B48C /* HabitViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4E26B05BCF00E4B48C /* HabitViewController .swift */; };
@@ -32,7 +31,6 @@
 		EF25538D26AD6F7A00862FFD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EF25538F26AD6FA900862FFD /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		EF3E3D3C26AEA7B400E4B48C /* InfoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoText.swift; sourceTree = "<group>"; };
-		EF3E3D3E26AEF95B00E4B48C /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toAutoLayout.swift; sourceTree = "<group>"; };
 		EF3E3D4726B056E100E4B48C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 		EF3E3D4E26B05BCF00E4B48C /* HabitViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HabitViewController .swift"; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				EFF0940626AD3A570012943B /* AppDelegate.swift */,
 				EFF0940826AD3A570012943B /* SceneDelegate.swift */,
 				EF25538B26AD6F3F00862FFD /* TabBarController.swift */,
-				EF3E3D3E26AEF95B00E4B48C /* NavigationViewController.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF3E3D5C26BADBB600E4B48C /* Fonts.swift in Sources */,
-				EF3E3D3F26AEF95B00E4B48C /* NavigationViewController.swift in Sources */,
 				EF3E3D5126B3D48C00E4B48C /* Colors.swift in Sources */,
 				EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */,
 				EF25539026AD6FA900862FFD /* HabitsViewController.swift in Sources */,

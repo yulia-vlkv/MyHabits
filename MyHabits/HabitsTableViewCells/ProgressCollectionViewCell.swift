@@ -13,7 +13,7 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         let label: UILabel = UILabel()
         label.text = "Всё получится!"
         label.textColor = SelectedColors.setColor(style: .lightGray)
-        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
+        label.font = SelectedFonts.setFont(style: .footnoteRegular)
         label.toAutoLayout()
         return label
     }()
@@ -21,11 +21,12 @@ class ProgressCollectionViewCell: UICollectionViewCell {
     private let percentLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textColor = SelectedColors.setColor(style: .lightGray)
-        label.font = SelectedFonts.setFont(style: .FootnoteBold)
+        label.font = SelectedFonts.setFont(style: .footnoteBold)
         label.textAlignment = .right
         label.toAutoLayout()
         return label
     }()
+    
     private let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
         progressBar.progressViewStyle = .bar

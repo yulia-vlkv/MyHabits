@@ -23,18 +23,40 @@ class HabitViewController: UIViewController {
         view.toAutoLayout()
         return view
     }()
+    
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 15
+        stackView.toAutoLayout()
+        return stackView
+    }()
+    
+    private func subStackView(stackView: UIStackView, title: UIView, object: UIView) {
+        let subStackView = UIStackView()
+        subStackView.axis = .vertical
+        subStackView.alignment = .leading
+        subStackView.distribution = .fillProportionally
+        subStackView.spacing = 7
+        subStackView.toAutoLayout()
+        subStackView.addArrangedSubview(title)
+        subStackView.addArrangedSubview(object)
+        stackView.addArrangedSubview(subStackView)
+    }
 
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "НАЗВАНИЕ"
-        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
+        label.font = SelectedFonts.setFont(style: .footnoteRegular)
         label.toAutoLayout()
         return label
     }()
 
     private let habitTextField: UITextField = {
         let textField = UITextField()
-        textField.font = SelectedFonts.setFont(style: .Body)
+        textField.font = SelectedFonts.setFont(style: .body)
         textField.layer.borderColor = UIColor.white.cgColor
         textField.textColor = .blue
         textField.placeholder = "Бегать по утрам, спать 8 часов и т.п."
@@ -43,11 +65,17 @@ class HabitViewController: UIViewController {
         textField.toAutoLayout()
         return textField
     }()
+    
+    @objc private func updateSaveButtonState() {
+        if let text = habitTextField.text {
+            self.navigationItem.rightBarButtonItem?.isEnabled = !text.isEmpty
+        }
+    }
 
     private let colorLabel: UILabel = {
         let label = UILabel()
         label.text = "ЦВЕТ"
-        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
+        label.font = SelectedFonts.setFont(style: .footnoteRegular)
         label.toAutoLayout()
         return label
     }()
@@ -55,6 +83,7 @@ class HabitViewController: UIViewController {
     private let colorButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 15
+        button.frame.size = CGSize(width: 30, height: 30)
         button.backgroundColor = .orange
         button.addTarget(self, action: #selector(pickColor), for: .touchUpInside)
         button.toAutoLayout()
@@ -72,7 +101,7 @@ class HabitViewController: UIViewController {
     private let timeLabel: UILabel = {
         let label = UILabel()
         label.text = "ВРЕМЯ"
-        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
+        label.font = SelectedFonts.setFont(style: .footnoteRegular)
         label.toAutoLayout()
         return label
     }()
@@ -96,16 +125,14 @@ class HabitViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .none
-        let textStr = NSMutableAttributedString(string: "Каждый день в ", attributes: [NSAttributedString.Key.font: SelectedFonts.setFont(style: .Body)])
+        let textStr = NSMutableAttributedString(string: "Каждый день в ", attributes: [NSAttributedString.Key.font: SelectedFonts.setFont(style: .body)])
         let selectedTime = formatter.string(from: timePicker.date)
-        let dateStr = NSAttributedString(string: selectedTime, attributes: [NSAttributedString.Key.font: SelectedFonts.setFont(style: .Body), NSAttributedString.Key.foregroundColor: UIColor(named: "awesomePurple")!])
+        let dateStr = NSAttributedString(string: selectedTime, attributes: [NSAttributedString.Key.font: SelectedFonts.setFont(style: .body), NSAttributedString.Key.foregroundColor: UIColor(named: "awesomePurple")!])
         textStr.append(dateStr)
         timePickerLabel.attributedText = textStr
     }
     
     private var sideInset: CGFloat { return 16 }
-    private var verticalInset: CGFloat { return 7 }
-    private var anotherVerticalInset: CGFloat { return 15 }
     
     private let removeButton: UIButton = {
         let button = UIButton()
@@ -203,19 +230,17 @@ class HabitViewController: UIViewController {
         cancel()
     }
     
-    @objc private func updateSaveButtonState() {
-        if let text = habitTextField.text {
-            self.navigationItem.rightBarButtonItem?.isEnabled = !text.isEmpty
-        }
-    }
-    
     private func setupViews(){
         
         scrollView.toAutoLayout()
         
         view.addSubview(scrollView)
-        scrollView.addSubviews(habitView, removeButton)
-        habitView.addSubviews(nameLabel, habitTextField, colorLabel, colorButton, timeLabel, timePickerLabel, timePicker)
+        scrollView.addSubviews(habitView, stackView, removeButton)
+        
+        subStackView(stackView: stackView, title: nameLabel, object: habitTextField)
+        subStackView(stackView: stackView, title: colorLabel, object: colorButton)
+        subStackView(stackView: stackView, title: timeLabel, object: timePickerLabel)
+        stackView.addArrangedSubview(timePicker)
         
         let constraints = [
             
@@ -230,35 +255,9 @@ class HabitViewController: UIViewController {
             habitView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             habitView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            nameLabel.topAnchor.constraint(equalTo: habitView.topAnchor, constant: 21),
-            nameLabel.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            nameLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
-            
-            habitTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: verticalInset),
-            habitTextField.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            habitTextField.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
-            
-            colorLabel.topAnchor.constraint(equalTo: habitTextField.bottomAnchor, constant: anotherVerticalInset),
-            colorLabel.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            colorLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
-            
-            colorButton.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: verticalInset),
-            colorButton.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            colorButton.widthAnchor.constraint(equalToConstant: 30),
-            colorButton.heightAnchor.constraint(equalTo: colorButton.widthAnchor),
-            
-            timeLabel.topAnchor.constraint(equalTo: colorButton.bottomAnchor, constant: anotherVerticalInset),
-            timeLabel.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            timeLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
-            
-            timePickerLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: verticalInset),
-            timePickerLabel.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
-            timePickerLabel.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
-            
-            timePicker.topAnchor.constraint(equalTo: timePickerLabel.bottomAnchor, constant: anotherVerticalInset),
-            timePicker.leadingAnchor.constraint(equalTo: habitView.leadingAnchor),
-            timePicker.trailingAnchor.constraint(equalTo: habitView.trailingAnchor),
-            timePicker.bottomAnchor.constraint(equalTo: habitView.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: habitView.topAnchor, constant: 21),
+            stackView.leadingAnchor.constraint(equalTo: habitView.leadingAnchor, constant: sideInset),
+            stackView.trailingAnchor.constraint(equalTo: habitView.trailingAnchor, constant: -sideInset),
             
             removeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             removeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18)

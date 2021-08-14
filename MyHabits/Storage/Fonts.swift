@@ -8,26 +8,26 @@
 import UIKit
 
 enum SelectedFonts {
-    case Title
-    case Headline
-    case Body
-    case FootnoteBold
-    case FootnoteRegular
-    case Caption
+    case title
+    case headline
+    case body
+    case footnoteBold
+    case footnoteRegular
+    case caption
     
     static func setFont (style: SelectedFonts) -> UIFont {
         switch style {
-        case .Title:
+        case .title:
             return UIFont.systemFont(ofSize: 20, weight: .semibold)
-        case .Headline:
+        case .headline:
             return UIFont.systemFont(ofSize: 17, weight: .semibold)
-        case .Body:
+        case .body:
             return UIFont.systemFont(ofSize: 17, weight: .regular)
-        case .FootnoteBold:
+        case .footnoteBold:
             return UIFont.systemFont(ofSize: 13, weight: .semibold)
-        case .FootnoteRegular:
+        case .footnoteRegular:
             return UIFont.systemFont(ofSize: 13, weight: .regular)
-        case .Caption:
+        case .caption:
             return UIFont.systemFont(ofSize: 12, weight: .regular)
         }
     }

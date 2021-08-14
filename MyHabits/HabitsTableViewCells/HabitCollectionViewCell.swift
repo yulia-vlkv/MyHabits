@@ -30,7 +30,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
     
     private let habitNameLabel: UILabel = {
         let label = UILabel()
-        label.font = SelectedFonts.setFont(style: .Headline)
+        label.font = SelectedFonts.setFont(style: .headline)
         label.numberOfLines = 2
         label.toAutoLayout()
         return label
@@ -38,7 +38,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
     
     private let habitTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = SelectedFonts.setFont(style: .Caption)
+        label.font = SelectedFonts.setFont(style: .caption)
         label.textColor = SelectedColors.setColor(style: .lightGray)
         label.toAutoLayout()
         return label
@@ -46,7 +46,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
     
     private let counterLabel: UILabel = {
         let label = UILabel()
-        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
+        label.font = SelectedFonts.setFont(style: .footnoteRegular)
         label.textColor = SelectedColors.setColor(style: .lightGray)
         label.text = "Счётчик: "
         label.toAutoLayout()
@@ -55,7 +55,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
     
     private lazy var counterValueLabel: UILabel = {
        let label = UILabel()
-        label.font = SelectedFonts.setFont(style: .FootnoteRegular)
+        label.font = SelectedFonts.setFont(style: .footnoteRegular)
         label.textColor = SelectedColors.setColor(style: .lightGray)
         label.toAutoLayout()
         return label
@@ -88,7 +88,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
         
 // Меняет пустую кнопку на галочку
     func checkmarkSetup() {
-        let imageSize = SelectedFonts.setFont(style: .Headline)
+        let imageSize = SelectedFonts.setFont(style: .headline)
         let configuration = UIImage.SymbolConfiguration(font: imageSize)
         let image = UIImage(systemName: "checkmark", withConfiguration: configuration)
         checkButton.setImage(image, for: .normal)
