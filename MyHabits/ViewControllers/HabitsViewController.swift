@@ -11,8 +11,8 @@ class HabitsViewController: UIViewController {
     
     private let layout = UICollectionViewFlowLayout()
     private lazy var habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    let store = HabitsStore.shared
-    let appearance = UINavigationBarAppearance()
+    private let store = HabitsStore.shared
+    private let appearance = UINavigationBarAppearance()
     
     override func viewDidLoad() {
         super.viewDidLoad()

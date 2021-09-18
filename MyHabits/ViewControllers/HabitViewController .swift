@@ -162,7 +162,7 @@ class HabitViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func editHabit() {
+    private func editHabit() {
         if let changedHabit = habit {
             habitTextField.text = changedHabit.name
             habitTextField.textColor = changedHabit.color

@@ -52,13 +52,13 @@ class HabitDetailsViewController: UIViewController {
         navigationItem.title = habit.name
     }
     
-    func setupNavigation() {
+    private func setupNavigation() {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action:  #selector(tapEditButton))
     }
     
-    func setupViews() {
+    private func setupViews() {
         
         view.addSubview(tableView)
         tableView.toAutoLayout()
@@ -120,7 +120,6 @@ extension HabitDetailsViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         return tableView.deselectRow(at: indexPath, animated: true)
     }
 }
