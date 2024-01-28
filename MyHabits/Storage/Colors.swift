@@ -10,9 +10,9 @@ import UIKit
 enum SelectedColors {
     case gray
     case lightGray
-    case almostWhite
-    case almostWhiteButForNavBar
-    case awesomePurple
+    case white
+    case navBarWhite
+    case purple
     case blue
     case green
     case indigo
@@ -24,11 +24,11 @@ enum SelectedColors {
                 return UIColor.systemGray
             case .lightGray:
                 return UIColor.systemGray2
-            case .almostWhite:
+            case .white:
                 return UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
-            case .almostWhiteButForNavBar:
+            case .navBarWhite:
                 return UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1)
-            case .awesomePurple:
+            case .purple:
                 return UIColor(red: 151/255, green: 22/255, blue: 204/255, alpha: 1)
             case .blue:
                 return UIColor(red: 41/255, green: 109/255, blue: 155/255, alpha: 1)

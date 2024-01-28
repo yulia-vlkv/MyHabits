@@ -9,6 +9,8 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
+    private static let infoText = InfoText()
+    
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.toAutoLayout()
@@ -24,7 +26,7 @@ class InfoViewController: UIViewController {
     
     private let textTitle: UILabel = {
         let title = UILabel()
-        title.text = infoTitle
+        title.text = infoText.infoTitle
         title.font = SelectedFonts.setFont(style: .title)
         title.textColor = .black
         title.textAlignment = .left
@@ -34,7 +36,7 @@ class InfoViewController: UIViewController {
     
     private let text: UITextView = {
         let text = UITextView()
-        text.text = infoText
+        text.text = infoText.infoText
         text.textColor = .black
         text.textAlignment = .left
         text.isScrollEnabled = false

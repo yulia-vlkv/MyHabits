@@ -54,7 +54,7 @@ class HabitDetailsViewController: UIViewController {
     
     private func setupNavigation() {
         navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
+        navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .purple)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action:  #selector(tapEditButton))
     }
     
@@ -75,7 +75,7 @@ class HabitDetailsViewController: UIViewController {
     }
     
     @objc func tapEditButton() {
-        let habitVC = HabitViewController()
+        let habitVC = EditHabitViewController()
         habitVC.habit = habit
         let navController = UINavigationController(rootViewController: habitVC)
         self.present(navController, animated: true, completion: nil)
@@ -93,7 +93,7 @@ extension HabitDetailsViewController: UITableViewDataSource {
        
         let datesTracked = HabitsStore.shared.dates.count - indexPath.item - 1
         cell.textLabel?.text = HabitsStore.shared.trackDateString(forIndex: datesTracked)
-        cell.tintColor = SelectedColors.setColor(style: .awesomePurple)
+        cell.tintColor = SelectedColors.setColor(style: .purple)
 
         let selectedHabit = self.habit
             let date = HabitsStore.shared.dates[datesTracked]

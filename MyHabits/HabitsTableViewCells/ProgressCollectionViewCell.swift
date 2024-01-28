@@ -31,7 +31,7 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         let progressBar = UIProgressView()
         progressBar.progressViewStyle = .bar
         progressBar.trackTintColor = SelectedColors.setColor(style: .lightGray)
-        progressBar.progressTintColor = SelectedColors.setColor(style: .awesomePurple)
+        progressBar.progressTintColor = SelectedColors.setColor(style: .purple)
         progressBar.toAutoLayout()
         return progressBar
     }()

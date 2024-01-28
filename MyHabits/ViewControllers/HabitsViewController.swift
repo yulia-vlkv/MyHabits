@@ -9,44 +9,49 @@ import UIKit
 
 class HabitsViewController: UIViewController {
     
+    var presenter: Presenter?
+    
     private let layout = UICollectionViewFlowLayout()
-    private lazy var habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    private let store = HabitsStore.shared
+    lazy var habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     private let appearance = UINavigationBarAppearance()
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        presenter = HabitsViewPresenter(viewController: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = SelectedColors.setColor(style: .almostWhite)
-        
-        setupAppearance()
-        setupCollectionView()
-        
+        presenter?.viewDidLoad()
         }
     
     // Настройки NavigationBar
-    private func setupAppearance(){
+    func setupAppearance(){
         navigationItem.title = "Сегодня"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = SelectedColors.setColor(style: .almostWhiteButForNavBar)
+        appearance.backgroundColor = SelectedColors.setColor(style: .navBarWhite)
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addHabit))
-        navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .awesomePurple)
+        navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .purple)
     }
     
     @objc func addHabit(){
-        let habitsCreateVC = HabitViewController ()
+        let habitsCreateVC = EditHabitViewController ()
         let habitsCreateNavVC = UINavigationController(rootViewController: habitsCreateVC)
         habitsCreateNavVC.modalPresentationStyle = .fullScreen
         present(habitsCreateNavVC, animated: true)
     }
     
-    private func setupCollectionView(){
+    func setupCollectionView(){
         view.addSubview(habitsCollectionView)
         habitsCollectionView.toAutoLayout()
-        habitsCollectionView.backgroundColor = SelectedColors.setColor(style: .almostWhite)
+        habitsCollectionView.backgroundColor = SelectedColors.setColor(style: .white)
         
         habitsCollectionView.dataSource = self
         habitsCollectionView.delegate = self
@@ -71,7 +76,7 @@ class HabitsViewController: UIViewController {
     }
 }
 
-
+// MARK: - DataSource
 extension HabitsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -79,40 +84,26 @@ extension HabitsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
-            return store.habits.count
-        }
+        
+        presenter?.numberOfItemsInSection(at: section) ?? 1
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch indexPath.section{
-        case 0:
-            let progressCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgressCollectionViewCell.self), for: indexPath) as! ProgressCollectionViewCell
-            progressCell.updateProgress()
-            return progressCell
-        default:
-            let habitCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as! HabitCollectionViewCell
-            habitCell.habit = store.habits[indexPath.item]
-            habitCell.isChecked = { self.habitsCollectionView.reloadData() }
-            return habitCell
-        }
+        presenter?.cellForItem(at: indexPath) ?? collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as! HabitCollectionViewCell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 1: let vc = HabitDetailsViewController(habit: store.habits[indexPath.row])
-            navigationController?.pushViewController(vc, animated: true)
-        default: break
-            
-        }
+        
+        presenter?.didSelectItemAt(at: indexPath)
+        
     }
 
 }
 
+// MARK: - FlowLayout
 extension HabitsViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

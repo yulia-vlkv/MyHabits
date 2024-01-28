@@ -10,10 +10,10 @@
 		EF25538C26AD6F3F00862FFD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538B26AD6F3F00862FFD /* TabBarController.swift */; };
 		EF25538E26AD6F7A00862FFD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538D26AD6F7A00862FFD /* InfoViewController.swift */; };
 		EF25539026AD6FA900862FFD /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25538F26AD6FA900862FFD /* HabitsViewController.swift */; };
+		EF29067B2B6652EF00A250ED /* HabitsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29067A2B6652EF00A250ED /* HabitsViewPresenter.swift */; };
 		EF3E3D3D26AEA7B400E4B48C /* InfoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D3C26AEA7B400E4B48C /* InfoText.swift */; };
-		EF3E3D4626B0567800E4B48C /* toAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */; };
-		EF3E3D4826B056E100E4B48C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4726B056E100E4B48C /* addSubviews.swift */; };
-		EF3E3D4F26B05BCF00E4B48C /* HabitViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4E26B05BCF00E4B48C /* HabitViewController .swift */; };
+		EF3E3D4626B0567800E4B48C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4526B0567800E4B48C /* UIViewExtension.swift */; };
+		EF3E3D4F26B05BCF00E4B48C /* EditHabitViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4E26B05BCF00E4B48C /* EditHabitViewController .swift */; };
 		EF3E3D5126B3D48C00E4B48C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D5026B3D48C00E4B48C /* Colors.swift */; };
 		EF3E3D5426B932F600E4B48C /* ProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D5326B932F600E4B48C /* ProgressCollectionViewCell.swift */; };
 		EF3E3D5626B9330B00E4B48C /* HabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D5526B9330B00E4B48C /* HabitCollectionViewCell.swift */; };
@@ -30,10 +30,10 @@
 		EF25538B26AD6F3F00862FFD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EF25538D26AD6F7A00862FFD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		EF25538F26AD6FA900862FFD /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		EF29067A2B6652EF00A250ED /* HabitsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewPresenter.swift; sourceTree = "<group>"; };
 		EF3E3D3C26AEA7B400E4B48C /* InfoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoText.swift; sourceTree = "<group>"; };
-		EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toAutoLayout.swift; sourceTree = "<group>"; };
-		EF3E3D4726B056E100E4B48C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
-		EF3E3D4E26B05BCF00E4B48C /* HabitViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HabitViewController .swift"; sourceTree = "<group>"; };
+		EF3E3D4526B0567800E4B48C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EF3E3D4E26B05BCF00E4B48C /* EditHabitViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditHabitViewController .swift"; sourceTree = "<group>"; };
 		EF3E3D5026B3D48C00E4B48C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EF3E3D5326B932F600E4B48C /* ProgressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF3E3D5526B9330B00E4B48C /* HabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -75,7 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				EF25538F26AD6FA900862FFD /* HabitsViewController.swift */,
-				EF3E3D4E26B05BCF00E4B48C /* HabitViewController .swift */,
+				EF29067A2B6652EF00A250ED /* HabitsViewPresenter.swift */,
+				EF3E3D4E26B05BCF00E4B48C /* EditHabitViewController .swift */,
 				EF25538D26AD6F7A00862FFD /* InfoViewController.swift */,
 				EF3E3D5926BA877100E4B48C /* HabitDetailsViewController.swift */,
 			);
@@ -94,8 +95,7 @@
 		EF3E3D5726BA841A00E4B48C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				EF3E3D4526B0567800E4B48C /* toAutoLayout.swift */,
-				EF3E3D4726B056E100E4B48C /* addSubviews.swift */,
+				EF3E3D4526B0567800E4B48C /* UIViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -213,17 +213,17 @@
 				EF3E3D5126B3D48C00E4B48C /* Colors.swift in Sources */,
 				EF4BCCB726AD46A700E276AA /* HabitsStore.swift in Sources */,
 				EF25539026AD6FA900862FFD /* HabitsViewController.swift in Sources */,
-				EF3E3D4826B056E100E4B48C /* addSubviews.swift in Sources */,
 				EF25538E26AD6F7A00862FFD /* InfoViewController.swift in Sources */,
 				EF25538C26AD6F3F00862FFD /* TabBarController.swift in Sources */,
 				EF3E3D5626B9330B00E4B48C /* HabitCollectionViewCell.swift in Sources */,
 				EF3E3D3D26AEA7B400E4B48C /* InfoText.swift in Sources */,
-				EF3E3D4F26B05BCF00E4B48C /* HabitViewController .swift in Sources */,
+				EF3E3D4F26B05BCF00E4B48C /* EditHabitViewController .swift in Sources */,
 				EF3E3D5426B932F600E4B48C /* ProgressCollectionViewCell.swift in Sources */,
+				EF29067B2B6652EF00A250ED /* HabitsViewPresenter.swift in Sources */,
 				EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */,
 				EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */,
 				EF3E3D5A26BA877100E4B48C /* HabitDetailsViewController.swift in Sources */,
-				EF3E3D4626B0567800E4B48C /* toAutoLayout.swift in Sources */,
+				EF3E3D4626B0567800E4B48C /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
