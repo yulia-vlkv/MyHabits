@@ -7,9 +7,35 @@
 
 import UIKit
 
-class InfoViewController: UIViewController {
+
+protocol InfoViewInput: AnyObject {
+    func setupInitialState()
+    func setInfoText(with text: String)
+    func setInfoTitle(with title: String)
+}
+
+protocol InfoViewOutput {
+    func viewDidLoad()
+}
+
+class InfoViewController: UIViewController, InfoViewInput {
     
-    private static let infoText = InfoText()
+    var output: InfoViewOutput!
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        output = InfoPresenter(view: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        output?.viewDidLoad()
+    }
     
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -26,7 +52,6 @@ class InfoViewController: UIViewController {
     
     private let textTitle: UILabel = {
         let title = UILabel()
-        title.text = infoText.infoTitle
         title.font = SelectedFonts.setFont(style: .title)
         title.textColor = .black
         title.textAlignment = .left
@@ -34,9 +59,8 @@ class InfoViewController: UIViewController {
         return title
     }()
     
-    private let text: UITextView = {
+    private let textView: UITextView = {
         let text = UITextView()
-        text.text = infoText.infoText
         text.textColor = .black
         text.textAlignment = .left
         text.isScrollEnabled = false
@@ -49,21 +73,14 @@ class InfoViewController: UIViewController {
         text.toAutoLayout()
         return text
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
+    func setupInitialState(){
+        
         self.title = "Информация"
         self.view.backgroundColor = .white
-        
-        setupTextView()
-    }
-
-    private func setupTextView(){
-        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(textTitle, text)
+        contentView.addSubviews(textTitle, textView)
 
         let constraints = [
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -82,11 +99,20 @@ class InfoViewController: UIViewController {
             textTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             textTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
 
-            text.topAnchor.constraint(equalTo: textTitle.bottomAnchor, constant: 16),
-            text.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            text.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+            textView.topAnchor.constraint(equalTo: textTitle.bottomAnchor, constant: 16),
+            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
+    
+    func setInfoText(with text: String) {
+        textView.text = text
+    }
+    
+    func setInfoTitle(with title: String) {
+        textTitle.text = title
+    }
+    
 }

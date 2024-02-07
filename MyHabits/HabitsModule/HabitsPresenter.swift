@@ -7,40 +7,42 @@
 
 import UIKit
 
-protocol Presenter {
-    
-    func viewDidLoad()
-    func cellForItem(at: IndexPath) -> UICollectionViewCell
+
+protocol HabitsModuleInput: HabitsInteractorOutput, HabitsViewOutput {
+    func cellForItem(_ collectionView: UICollectionView, at: IndexPath) -> UICollectionViewCell
     func numberOfItemsInSection(at: Int) -> Int
     func didSelectItemAt(at: IndexPath)
+    func createNewHabit() 
 }
 
+protocol HabitsModuleOutput {
 
-final class HabitsViewPresenter: Presenter {
-     
-    let store = HabitsStore.shared
-    private let viewController: HabitsViewController
+}
+
+final class HabitsPresenter: HabitsModuleInput {
     
-    private var view: UIView {
-        viewController.view
-    }
+    var router: HabitsRouterInput!
+    var interactor: HabitsInteractorInput!
+    weak var view: HabitsViewInput!
     
-    private var collectionView: UICollectionView {
-        viewController.habitsCollectionView
-    }
-    
-    init(viewController: HabitsViewController) {
-        self.viewController = viewController
+    init(view: HabitsViewInput) {
+        self.view = view
     }
     
     func viewDidLoad() {
-        view.backgroundColor = SelectedColors.setColor(style: .white)
-        
-        viewController.setupAppearance()
-        viewController.setupCollectionView()
+        view.setupInitialState()
+        view.setupCollectionView()
     }
     
-    func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell {
+    func habitSaved() {
+        
+    }
+    
+    func createNewHabit() {
+        router.openCreateHabit()
+    }
+    
+    func cellForItem(_ collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section{
         case 0:
             let progressCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ProgressCollectionViewCell.self), for: indexPath) as! ProgressCollectionViewCell
@@ -48,8 +50,8 @@ final class HabitsViewPresenter: Presenter {
             return progressCell
         default:
             let habitCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as! HabitCollectionViewCell
-            habitCell.habit = store.habits[indexPath.item]
-            habitCell.isChecked = { self.collectionView.reloadData() }
+            habitCell.habit = interactor.getHabit(with: indexPath.item)
+            habitCell.isChecked = { self.view.reloadData() }
             return habitCell
         }
     }
@@ -59,15 +61,15 @@ final class HabitsViewPresenter: Presenter {
         case 0:
             return 1
         default:
-            return store.habits.count
+            return interactor.getHabitsCount()
         }
     }
     
     func didSelectItemAt(at indexPath: IndexPath) {
         switch indexPath.section {
-        case 1: let vc = HabitDetailsViewController(habit: store.habits[indexPath.row])
-            viewController.navigationController?.pushViewController(vc, animated: true)
+        case 1: router.openDetail(with: interactor.getHabit(with: indexPath.row))
         default: break
         }
     }
+    
 }

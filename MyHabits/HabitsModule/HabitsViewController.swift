@@ -7,17 +7,27 @@
 
 import UIKit
 
-class HabitsViewController: UIViewController {
+protocol HabitsViewInput: AnyObject {
+    func setupInitialState()
+    func setupCollectionView()
+    func reloadData()
+}
+
+protocol HabitsViewOutput {
+    func viewDidLoad()
+}
+
+class HabitsViewController: UIViewController, HabitsViewInput {
     
-    var presenter: Presenter?
-    
+    var output: HabitsViewOutput!
+        
     private let layout = UICollectionViewFlowLayout()
     lazy var habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     private let appearance = UINavigationBarAppearance()
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        presenter = HabitsViewPresenter(viewController: self)
+        output = HabitsPresenter(view: self)
     }
     
     required init?(coder: NSCoder) {
@@ -26,11 +36,17 @@ class HabitsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
-        }
+        
+        output?.viewDidLoad()
+    }
+    
+    func reloadData(){
+        habitsCollectionView.reloadData()
+    }
     
     // Настройки NavigationBar
-    func setupAppearance(){
+    func setupInitialState(){
+        view.backgroundColor = SelectedColors.setColor(style: .white)
         navigationItem.title = "Сегодня"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
@@ -42,10 +58,7 @@ class HabitsViewController: UIViewController {
     }
     
     @objc func addHabit(){
-        let habitsCreateVC = EditHabitViewController ()
-        let habitsCreateNavVC = UINavigationController(rootViewController: habitsCreateVC)
-        habitsCreateNavVC.modalPresentationStyle = .fullScreen
-        present(habitsCreateNavVC, animated: true)
+        HabitsPresenter(view: self).createNewHabit()
     }
     
     func setupCollectionView(){
@@ -84,21 +97,15 @@ extension HabitsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        presenter?.numberOfItemsInSection(at: section) ?? 1
-
+        HabitsPresenter(view: self).numberOfItemsInSection(at: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        presenter?.cellForItem(at: indexPath) ?? collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitCollectionViewCell.self), for: indexPath) as! HabitCollectionViewCell
-        
+        HabitsPresenter(view: self).cellForItem(collectionView, at: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        presenter?.didSelectItemAt(at: indexPath)
-        
+        HabitsPresenter(view: self).didSelectItemAt(at: indexPath)
     }
 
 }

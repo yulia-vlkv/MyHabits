@@ -7,15 +7,25 @@
 
 import UIKit
 
+protocol HabitDetailsViewInput: AnyObject {
+    func setupInitialState()
+    func setInfoText(with text: String)
+    func setInfoTitle(with title: String)
+}
+
+protocol HabitDetailsViewOutput {
+    func viewDidLoad()
+}
+
 class HabitDetailsViewController: UIViewController {
     
-    var habit: Habit
+    var habit: HabitEntity
     
     let tableView = UITableView(frame: .zero, style: .grouped)
     let cellID = "CellID"
     
     
-    init (habit: Habit) {
+    init (habit: HabitEntity) {
         self.habit = habit
         super.init(nibName: nil, bundle: nil)
 

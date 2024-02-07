@@ -11,7 +11,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
         
     var isChecked: (() -> Void)?
     
-    var habit: Habit? {
+    var habit: HabitEntity? {
         didSet {
             habitNameLabel.text = habit?.name
             habitNameLabel.textColor = habit?.color

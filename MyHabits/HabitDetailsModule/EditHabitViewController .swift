@@ -9,7 +9,7 @@ import UIKit
 
 class EditHabitViewController: UIViewController {
     
-    var habit: Habit? {
+    var habit: HabitEntity? {
         didSet {
             editHabit()
         }
@@ -61,7 +61,7 @@ class EditHabitViewController: UIViewController {
         textField.textColor = .blue
         textField.placeholder = "Бегать по утрам, спать 8 часов и т.п."
         textField.returnKeyType = UIReturnKeyType.done
-        textField.addTarget(self, action: #selector(updateSaveButtonState), for: .editingChanged)
+        textField.addTarget(EditHabitViewController.self, action: #selector(updateSaveButtonState), for: .editingChanged)
         textField.toAutoLayout()
         return textField
     }()
@@ -85,7 +85,7 @@ class EditHabitViewController: UIViewController {
         button.layer.cornerRadius = 15
         button.frame.size = CGSize(width: 30, height: 30)
         button.backgroundColor = .orange
-        button.addTarget(self, action: #selector(pickColor), for: .touchUpInside)
+        button.addTarget(EditHabitViewController.self, action: #selector(pickColor), for: .touchUpInside)
         button.toAutoLayout()
         return button
     }()
@@ -116,7 +116,7 @@ class EditHabitViewController: UIViewController {
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .wheels
         picker.datePickerMode = .time
-        picker.addTarget(self, action: #selector (chooseTime), for: .valueChanged)
+        picker.addTarget(EditHabitViewController.self, action: #selector (chooseTime), for: .valueChanged)
         picker.toAutoLayout()
         return picker
     }()
@@ -139,7 +139,7 @@ class EditHabitViewController: UIViewController {
         button.backgroundColor = .white
         button.setTitle("Удалить привычку", for: .normal)
         button.setTitleColor(.red, for: .normal)
-        button.addTarget(self, action: #selector(showAlertController), for: .touchUpInside)
+        button.addTarget(EditHabitViewController.self, action: #selector(showAlertController), for: .touchUpInside)
         button.toAutoLayout()
         return button
     }()
@@ -217,7 +217,7 @@ class EditHabitViewController: UIViewController {
             changedHabit.color = colorButton.backgroundColor ?? .white
             HabitsStore.shared.save()
         } else {
-            let newHabit = Habit(
+            let newHabit = HabitEntity (
                 name: habitTextField.text ?? "",
                 date: timePicker.date,
                 color: colorButton.backgroundColor ?? .white)
