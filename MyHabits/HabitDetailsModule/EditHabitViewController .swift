@@ -215,7 +215,7 @@ class EditHabitViewController: UIViewController {
             changedHabit.name = habitTextField.text ?? ""
             changedHabit.date = timePicker.date
             changedHabit.color = colorButton.backgroundColor ?? .white
-            HabitsStore.shared.save()
+//            HabitsStore.shared.save()
         } else {
             let newHabit = HabitEntity (
                 name: habitTextField.text ?? "",

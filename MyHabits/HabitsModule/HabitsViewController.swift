@@ -15,11 +15,16 @@ protocol HabitsViewInput: AnyObject {
 
 protocol HabitsViewOutput {
     func viewDidLoad()
+    func cellForItem(_ collectionView: UICollectionView, at: IndexPath) -> UICollectionViewCell
+    func numberOfItemsInSection(at: Int) -> Int
+    func didSelectItemAt(at: IndexPath)
 }
 
 class HabitsViewController: UIViewController, HabitsViewInput {
     
     var output: HabitsViewOutput!
+    var router: HabitsRouterInput!
+    var interactor: HabitsInteractorInput!
         
     private let layout = UICollectionViewFlowLayout()
     lazy var habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -27,7 +32,7 @@ class HabitsViewController: UIViewController, HabitsViewInput {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        output = HabitsPresenter(view: self)
+        output = HabitsPresenter(view: self, interactor: interactor, router: router)
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +41,6 @@ class HabitsViewController: UIViewController, HabitsViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         output?.viewDidLoad()
     }
     
@@ -44,7 +48,6 @@ class HabitsViewController: UIViewController, HabitsViewInput {
         habitsCollectionView.reloadData()
     }
     
-    // Настройки NavigationBar
     func setupInitialState(){
         view.backgroundColor = SelectedColors.setColor(style: .white)
         navigationItem.title = "Сегодня"
@@ -58,7 +61,7 @@ class HabitsViewController: UIViewController, HabitsViewInput {
     }
     
     @objc func addHabit(){
-        HabitsPresenter(view: self).createNewHabit()
+//        HabitsPresenter(view: self).createNewHabit()
     }
     
     func setupCollectionView(){
@@ -97,15 +100,15 @@ extension HabitsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        HabitsPresenter(view: self).numberOfItemsInSection(at: section)
+        output?.numberOfItemsInSection(at: section) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        HabitsPresenter(view: self).cellForItem(collectionView, at: indexPath)
+        output?.cellForItem(collectionView, at: indexPath) ?? collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! HabitCollectionViewCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        HabitsPresenter(view: self).didSelectItemAt(at: indexPath)
+        output?.didSelectItemAt(at: indexPath)
     }
 
 }

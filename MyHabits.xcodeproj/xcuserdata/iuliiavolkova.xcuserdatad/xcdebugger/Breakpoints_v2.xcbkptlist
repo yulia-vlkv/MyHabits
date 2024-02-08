@@ -30,10 +30,42 @@
             filePath = "MyHabits/HabitsModule/HabitsInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "save()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "355E409E-414D-484B-A14C-AE2179A80E5C - a5a328bc4c917816"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyHabits.HabitsInteractor.save() -&gt; ()"
+                  moduleName = "MyHabits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iuliiavolkova/Documents/Development/RandomProjects/MyHabits/MyHabits/HabitsModule/HabitsInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  uuid = "355E409E-414D-484B-A14C-AE2179A80E5C - a5a328bc4c917816"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyHabits.HabitsInteractor.save() -&gt; ()"
+                  moduleName = "MyHabits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iuliiavolkova/Documents/Development/RandomProjects/MyHabits/MyHabits/HabitsModule/HabitsInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

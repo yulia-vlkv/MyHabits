@@ -45,14 +45,14 @@ public final class HabitsStore {
 //
 //    private lazy var encoder: JSONEncoder = .init()
     
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = .init(identifier: "ru_RU")
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        formatter.doesRelativeDateFormatting = true
-        return formatter
-    }()
+//    private lazy var dateFormatter: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.locale = .init(identifier: "ru_RU")
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .none
+//        formatter.doesRelativeDateFormatting = true
+//        return formatter
+//    }()
     
     private lazy var calendar: Calendar = .current
     
@@ -85,16 +85,16 @@ public final class HabitsStore {
 //        return dateFormatter.string(from: dates[index])
 //    }
 //
-    /// Показывает, была ли затрекана привычка в переданную дату.
-    /// - Parameters:
-    ///   - habit: Привычка, у которой проверяются затреканные даты.
-    ///   - date: Дата, для которой проверяется, была ли затрекана привычка.
-    /// - Returns: Возвращает true, если привычка была затрекана в переданную дату.
-    public func habit(_ habit: HabitEntity, isTrackedIn date: Date) -> Bool {
-        habit.trackDates.contains { trackDate in
-            calendar.isDate(date, equalTo: trackDate, toGranularity: .day)
-        }
-    }
+//    /// Показывает, была ли затрекана привычка в переданную дату.
+//    /// - Parameters:
+//    ///   - habit: Привычка, у которой проверяются затреканные даты.
+//    ///   - date: Дата, для которой проверяется, была ли затрекана привычка.
+//    /// - Returns: Возвращает true, если привычка была затрекана в переданную дату.
+//    public func habit(_ habit: HabitEntity, isTrackedIn date: Date) -> Bool {
+//        habit.trackDates.contains { trackDate in
+//            calendar.isDate(date, equalTo: trackDate, toGranularity: .day)
+//        }
+//    }
     
     // MARK: - Private
     

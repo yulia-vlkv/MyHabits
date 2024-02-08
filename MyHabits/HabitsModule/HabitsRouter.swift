@@ -18,7 +18,7 @@ class HabitsRouter: HabitsRouterInput {
     weak var viewController: HabitsViewController!
     
     func openDetail(with habit: HabitEntity) {
-        let vc = HabitDetailsViewController(habit: habit)
+        let vc = HabitDetailsViewController()
         viewController.navigationController?.pushViewController(vc, animated: true)
     }
     

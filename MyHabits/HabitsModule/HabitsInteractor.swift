@@ -29,12 +29,6 @@ class HabitsInteractor: HabitsInteractorInput {
     private lazy var userDefaults: UserDefaults = .standard
     private lazy var calendar: Calendar = .current
     
-    public func getDates() -> [Date] {
-        guard let startDate = userDefaults.object(forKey: "start_date") as? Date else {
-            return []
-        }
-        return Date.dates(from: startDate, to: .init())
-    }
     
     func save() {
         do {

@@ -19,4 +19,15 @@ class HabitDetailsRouter: HabitDetailsRouterInput {
     func backToMain() {
         self.viewController.dismiss(animated: true)
     }
+    
+    @objc func tapEditButton() {
+//        let habitVC = EditHabitViewController()
+//        habitVC.habit = habit
+//        let navController = UINavigationController(rootViewController: habitVC)
+//        self.present(navController, animated: true, completion: nil)
+    }
+    
+    @objc func goToHabitsVC() {
+//        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

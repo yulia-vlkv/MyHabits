@@ -9,27 +9,26 @@ import UIKit
 
 protocol HabitDetailsViewInput: AnyObject {
     func setupInitialState()
-    func setInfoText(with text: String)
-    func setInfoTitle(with title: String)
 }
 
 protocol HabitDetailsViewOutput {
     func viewDidLoad()
+    func numberOfRowsInSection(at section: Int) -> Int
+    func cellForItem(_ tableView: UITableView, at: IndexPath) -> UITableViewCell
 }
 
-class HabitDetailsViewController: UIViewController {
+class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     
-    var habit: HabitEntity
+    var output: HabitDetailsViewOutput!
     
     let tableView = UITableView(frame: .zero, style: .grouped)
     let cellID = "CellID"
     
-    
-    init (habit: HabitEntity) {
-        self.habit = habit
+    init() {
         super.init(nibName: nil, bundle: nil)
-
+        output = HabitDetailsPresenter(view: self)
     }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,44 +36,30 @@ class HabitDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        output?.viewDidLoad()
+    }
+    
+    @objc func goToHabitsVC() {
+//        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func changeTitle() {
+//        navigationItem.title = habit.name
+    }
+    
+    func setupInitialState() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .purple)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action:  #selector(tapEditButton))
         
-        setupNavigation()
-        setupViews()
-        
+        view.addSubview(tableView)
+        tableView.toAutoLayout()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         NotificationCenter.default.addObserver(self, selector: #selector(goToHabitsVC), name: NSNotification.Name(rawValue: "goToHabitsVC"), object: nil)
-    }
-    
-    @objc func goToHabitsVC() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
-        
-        navigationItem.title = habit.name
-        NotificationCenter.default.addObserver(self, selector: #selector(changeTitle), name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
-    }
-    
-    @objc func changeTitle() {
-        navigationItem.title = habit.name
-    }
-    
-    private func setupNavigation() {
-        navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .purple)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action:  #selector(tapEditButton))
-    }
-    
-    private func setupViews() {
-        
-        view.addSubview(tableView)
-        tableView.toAutoLayout()
         
         let constraints = [
-            
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -85,34 +70,26 @@ class HabitDetailsViewController: UIViewController {
     }
     
     @objc func tapEditButton() {
-        let habitVC = EditHabitViewController()
-        habitVC.habit = habit
-        let navController = UINavigationController(rootViewController: habitVC)
-        self.present(navController, animated: true, completion: nil)
+
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+//        navigationItem.title = habit.name
+//        NotificationCenter.default.addObserver(self, selector: #selector(changeTitle), name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
+    }
+    
 }
 
+// MARK: - UITableViewDataSource
 extension HabitDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        HabitsStore.shared.dates.count
+        output?.numberOfRowsInSection(at: section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-       
-        let datesTracked = HabitsStore.shared.dates.count - indexPath.item - 1
-        cell.textLabel?.text = HabitsStore.shared.trackDateString(forIndex: datesTracked)
-        cell.tintColor = SelectedColors.setColor(style: .purple)
-
-        let selectedHabit = self.habit
-            let date = HabitsStore.shared.dates[datesTracked]
-        if HabitsStore.shared.habit(selectedHabit, isTrackedIn: date) {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-        return cell
+        output?.cellForItem(tableView, at: indexPath) ?? tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -120,6 +97,8 @@ extension HabitDetailsViewController: UITableViewDataSource {
     }
 }
 
+
+// MARK: - UITableViewDelegate
 extension HabitDetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -9,14 +9,11 @@ import UIKit
 
 
 protocol HabitsModuleInput: HabitsInteractorOutput, HabitsViewOutput {
-    func cellForItem(_ collectionView: UICollectionView, at: IndexPath) -> UICollectionViewCell
-    func numberOfItemsInSection(at: Int) -> Int
-    func didSelectItemAt(at: IndexPath)
-    func createNewHabit() 
+    func createNewHabit()
 }
 
 protocol HabitsModuleOutput {
-
+   
 }
 
 final class HabitsPresenter: HabitsModuleInput {
@@ -25,8 +22,10 @@ final class HabitsPresenter: HabitsModuleInput {
     var interactor: HabitsInteractorInput!
     weak var view: HabitsViewInput!
     
-    init(view: HabitsViewInput) {
+    init(view: HabitsViewInput, interactor: HabitsInteractorInput, router: HabitsRouterInput) {
         self.view = view
+        self.interactor = interactor
+        self.router = router
     }
     
     func viewDidLoad() {
