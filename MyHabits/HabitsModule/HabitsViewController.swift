@@ -61,7 +61,7 @@ class HabitsViewController: UIViewController, HabitsViewInput {
     }
     
     @objc func addHabit(){
-//        HabitsPresenter(view: self).createNewHabit()
+        HabitsPresenter(view: self, interactor: interactor, router: router).createNewHabit()
     }
     
     func setupCollectionView(){
@@ -87,7 +87,7 @@ class HabitsViewController: UIViewController, HabitsViewInput {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        HabitsStore.shared.habits.sort(by: { $0.date < $1.date })
+        EditHabitInteractor.shared.habits.sort(by: { $0.date < $1.date })
         habitsCollectionView.reloadData()
     }
 }

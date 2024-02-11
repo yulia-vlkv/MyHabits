@@ -14,7 +14,7 @@ protocol HabitDetailsRouterInput {
 
 class HabitDetailsRouter: HabitDetailsRouterInput {
     
-    weak var viewController: InfoViewController!
+    weak var viewController: HabitDetailsViewController!
     
     func backToMain() {
         self.viewController.dismiss(animated: true)

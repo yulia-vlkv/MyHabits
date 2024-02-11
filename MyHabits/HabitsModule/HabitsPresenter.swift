@@ -34,7 +34,7 @@ final class HabitsPresenter: HabitsModuleInput {
     }
     
     func habitSaved() {
-        
+        interactor.save()
     }
     
     func createNewHabit() {

@@ -14,7 +14,7 @@
 		EF29069C2B72124700A250ED /* HabitsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29069B2B72124700A250ED /* HabitsRouter.swift */; };
 		EF29069E2B72132500A250ED /* HabitsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29069D2B72132500A250ED /* HabitsInteractor.swift */; };
 		EF2906A02B7276E000A250ED /* FoundationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29069F2B7276E000A250ED /* FoundationExtention.swift */; };
-		EF2906A42B73C2E400A250ED /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906A32B73C2E400A250ED /* HabitsStore.swift */; };
+		EF2906A42B73C2E400A250ED /* EditHabitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906A32B73C2E400A250ED /* EditHabitInteractor.swift */; };
 		EF2906A62B73C39100A250ED /* InfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906A52B73C39100A250ED /* InfoPresenter.swift */; };
 		EF2906A82B73C3E500A250ED /* InfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906A72B73C3E500A250ED /* InfoRouter.swift */; };
 		EF2906AA2B73CB7300A250ED /* EditHabitViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906A92B73CB7300A250ED /* EditHabitViewController .swift */; };
@@ -22,6 +22,8 @@
 		EF2906AE2B73DBC200A250ED /* HabitDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906AD2B73DBC200A250ED /* HabitDetailsInteractor.swift */; };
 		EF2906B02B73DBD000A250ED /* HabitDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906AF2B73DBD000A250ED /* HabitDetailsRouter.swift */; };
 		EF2906B22B753EAD00A250ED /* HabitsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906B12B753EAD00A250ED /* HabitsAssembly.swift */; };
+		EF2906B42B78EAB600A250ED /* EditHabitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906B32B78EAB600A250ED /* EditHabitPresenter.swift */; };
+		EF2906B62B78EAC500A250ED /* EditHabitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2906B52B78EAC500A250ED /* EditHabitRouter.swift */; };
 		EF3E3D3D26AEA7B400E4B48C /* InfoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D3C26AEA7B400E4B48C /* InfoEntity.swift */; };
 		EF3E3D4626B0567800E4B48C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D4526B0567800E4B48C /* UIViewExtension.swift */; };
 		EF3E3D5126B3D48C00E4B48C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E3D5026B3D48C00E4B48C /* Colors.swift */; };
@@ -44,7 +46,7 @@
 		EF29069B2B72124700A250ED /* HabitsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsRouter.swift; sourceTree = "<group>"; };
 		EF29069D2B72132500A250ED /* HabitsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsInteractor.swift; sourceTree = "<group>"; };
 		EF29069F2B7276E000A250ED /* FoundationExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtention.swift; sourceTree = "<group>"; };
-		EF2906A32B73C2E400A250ED /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
+		EF2906A32B73C2E400A250ED /* EditHabitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitInteractor.swift; sourceTree = "<group>"; };
 		EF2906A52B73C39100A250ED /* InfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPresenter.swift; sourceTree = "<group>"; };
 		EF2906A72B73C3E500A250ED /* InfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRouter.swift; sourceTree = "<group>"; };
 		EF2906A92B73CB7300A250ED /* EditHabitViewController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EditHabitViewController .swift"; path = "MyHabits/HabitDetailsModule/EditHabitViewController .swift"; sourceTree = SOURCE_ROOT; };
@@ -52,6 +54,8 @@
 		EF2906AD2B73DBC200A250ED /* HabitDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsInteractor.swift; sourceTree = "<group>"; };
 		EF2906AF2B73DBD000A250ED /* HabitDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsRouter.swift; sourceTree = "<group>"; };
 		EF2906B12B753EAD00A250ED /* HabitsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsAssembly.swift; sourceTree = "<group>"; };
+		EF2906B32B78EAB600A250ED /* EditHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitPresenter.swift; sourceTree = "<group>"; };
+		EF2906B52B78EAC500A250ED /* EditHabitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitRouter.swift; sourceTree = "<group>"; };
 		EF3E3D3C26AEA7B400E4B48C /* InfoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEntity.swift; sourceTree = "<group>"; };
 		EF3E3D4526B0567800E4B48C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		EF3E3D5026B3D48C00E4B48C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -93,8 +97,10 @@
 		EF2906A12B73C12400A250ED /* EditHabitModule */ = {
 			isa = PBXGroup;
 			children = (
-				EF2906A32B73C2E400A250ED /* HabitsStore.swift */,
 				EF2906A92B73CB7300A250ED /* EditHabitViewController .swift */,
+				EF2906A32B73C2E400A250ED /* EditHabitInteractor.swift */,
+				EF2906B32B78EAB600A250ED /* EditHabitPresenter.swift */,
+				EF2906B52B78EAC500A250ED /* EditHabitRouter.swift */,
 			);
 			name = EditHabitModule;
 			path = OtherViewControllers;
@@ -279,10 +285,12 @@
 				EF2906AA2B73CB7300A250ED /* EditHabitViewController .swift in Sources */,
 				EF2906AE2B73DBC200A250ED /* HabitDetailsInteractor.swift in Sources */,
 				EF3E3D5426B932F600E4B48C /* ProgressCollectionViewCell.swift in Sources */,
+				EF2906B42B78EAB600A250ED /* EditHabitPresenter.swift in Sources */,
 				EF29067B2B6652EF00A250ED /* HabitsPresenter.swift in Sources */,
 				EFF0940726AD3A570012943B /* AppDelegate.swift in Sources */,
 				EF2906B22B753EAD00A250ED /* HabitsAssembly.swift in Sources */,
-				EF2906A42B73C2E400A250ED /* HabitsStore.swift in Sources */,
+				EF2906B62B78EAC500A250ED /* EditHabitRouter.swift in Sources */,
+				EF2906A42B73C2E400A250ED /* EditHabitInteractor.swift in Sources */,
 				EF2906AC2B73DBA700A250ED /* HabitDetailsPresenter.swift in Sources */,
 				EFF0940926AD3A570012943B /* SceneDelegate.swift in Sources */,
 				EF3E3D5A26BA877100E4B48C /* HabitDetailsViewController.swift in Sources */,
