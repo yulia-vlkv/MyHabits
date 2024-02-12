@@ -9,6 +9,7 @@ import Foundation
 
 protocol EditHabitInteractorInput {
     var shared: EditHabitInteractor { get }
+    var habits: [HabitEntity] { get set }
     func save()
 }
 
@@ -27,7 +28,7 @@ class EditHabitInteractor {
     /// Список привычек, добавленных пользователем. Добавленные привычки сохраняются в UserDefaults и доступны после перезагрузки приложения.
     public var habits: [HabitEntity] = [] {
         didSet {
-//            save()
+            save()
         }
     }
     

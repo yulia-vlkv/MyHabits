@@ -22,9 +22,10 @@ protocol EditHabitViewInput: AnyObject {
 
 protocol EditHabitViewOutput {
     func viewDidLoad()
+    func showAlertController()
 }
 
-class EditHabitViewController: UIViewController, HabitDetailsViewInput, EditHabitViewInput {
+class EditHabitViewController: UIViewController, EditHabitViewInput {
 
     var output: EditHabitViewOutput!
     
@@ -33,7 +34,7 @@ class EditHabitViewController: UIViewController, HabitDetailsViewInput, EditHabi
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        output = EditHabitPresenter(view: self)
+        output = EditHabitPresenter(view: self) as? any EditHabitViewOutput
     }
     
     @available(*, unavailable)
@@ -170,7 +171,7 @@ class EditHabitViewController: UIViewController, HabitDetailsViewInput, EditHabi
     }()
     
     @objc func showAlertController() {
-        
+        output?.showAlertController()
     }
     
     // Настройки NavigationBar

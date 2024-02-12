@@ -19,12 +19,14 @@ protocol HabitDetailsModuleOutput {
 
 final class HabitDetailsPresenter: HabitDetailsModuleInput {
     
+    var habit: HabitEntity
     var router: HabitDetailsRouterInput!
     var interactor: HabitDetailsInteractorInput!
     weak var view: HabitDetailsViewInput!
     
-    init(view: HabitDetailsViewInput) {
+    init(view: HabitDetailsViewInput, with habit: HabitEntity) {
         self.view = view
+        self.habit = habit
     }
     
     func viewDidLoad() {
@@ -52,5 +54,8 @@ final class HabitDetailsPresenter: HabitDetailsModuleInput {
         return cell
     }
     
+    func changeTitle(_ view: UIViewController, for habit: HabitEntity) {
+        view.navigationController?.navigationItem.title = habit.name
+    }
     
 }

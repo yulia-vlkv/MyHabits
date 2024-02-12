@@ -52,4 +52,8 @@ final class EditHabitPresenter: EditHabitModuleOutput {
         }
     }
     
+    func showAlertController() {
+        router.showAlertController()
+    }
+    
 }

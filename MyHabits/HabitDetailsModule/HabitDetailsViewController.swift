@@ -12,9 +12,11 @@ protocol HabitDetailsViewInput: AnyObject {
 }
 
 protocol HabitDetailsViewOutput {
+    var habit: HabitEntity { get set }
     func viewDidLoad()
     func numberOfRowsInSection(at section: Int) -> Int
     func cellForItem(_ tableView: UITableView, at: IndexPath) -> UITableViewCell
+    func changeTitle(_ view: UIViewController, for habit: HabitEntity)
 }
 
 class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
@@ -26,7 +28,7 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        output = HabitDetailsPresenter(view: self)
+        output = HabitDetailsPresenter(view: self, with: <#HabitEntity#>)
     }
     
     @available(*, unavailable)
@@ -41,10 +43,6 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     
     @objc func goToHabitsVC() {
 //        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @objc func changeTitle() {
-//        navigationItem.title = habit.name
     }
     
     func setupInitialState() {
@@ -76,8 +74,12 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-//        navigationItem.title = habit.name
-//        NotificationCenter.default.addObserver(self, selector: #selector(changeTitle), name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
+        navigationItem.title = output?.habit.name
+        NotificationCenter.default.addObserver(self, selector: #selector(changeTitle), name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
+    }
+    
+    @objc func changeTitle() {
+        output?.changeTitle(self, for: habit)
     }
     
 }

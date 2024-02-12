@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HabitDetailsInteractorInput {
-    var habit: HabitEntity { get set }
+    var habit: HabitEntity { get }
     var dates: [Date] { get }
     func trackDateString(forIndex index: Int) -> String? 
     func habit(_ habit: HabitEntity, isTrackedIn date: Date) -> Bool 
