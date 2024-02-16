@@ -20,9 +20,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     private func setupTabBar(){
-        HabitsAssembly.makeModule()
-        let habitTab = HabitsViewController()
-//        HabitsAssembly.makeModule()
+   
+// Примеры вызова с использованием дженириков
+//        let habitsModule = Assembly<HabitsPresenter, HabitsInteractor, HabitsViewController, HabitsRouter>.makeModule()
+//        let habitsModule = Assembly<HabitsDetialPresenter, HabitsDetialInteractor, HabitsDetialViewController, HabitsDetialRouter>.makeModule()
+        
+        let habitTab = HabitsAssembly.makeModule()
         habitTab.tabBarItem = UITabBarItem(title: "Привычки", image: UIImage(systemName: "rectangle.grid.1x2.fill"), tag: 0)
         let infoTab = InfoViewController()
         infoTab.tabBarItem = UITabBarItem(title: "Информация", image: UIImage(systemName: "info.circle.fill"), tag: 1)

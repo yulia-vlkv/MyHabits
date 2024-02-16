@@ -22,22 +22,11 @@ protocol HabitsViewOutput {
 
 class HabitsViewController: UIViewController, HabitsViewInput {
     
-    var output: HabitsViewOutput!
-    var router: HabitsRouterInput!
-    var interactor: HabitsInteractorInput!
+    var output: HabitsModuleInput?
         
     private let layout = UICollectionViewFlowLayout()
     lazy var habitsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     private let appearance = UINavigationBarAppearance()
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        output = HabitsPresenter(view: self, interactor: interactor, router: router)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +50,7 @@ class HabitsViewController: UIViewController, HabitsViewInput {
     }
     
     @objc func addHabit(){
-        HabitsPresenter(view: self, interactor: interactor, router: router).createNewHabit()
+        output?.createNewHabit()
     }
     
     func setupCollectionView(){

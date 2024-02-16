@@ -13,10 +13,6 @@ protocol HabitDetailsModuleInput: HabitDetailsInteractorOutput, HabitDetailsView
     func viewDidLoad()
 }
 
-protocol HabitDetailsModuleOutput {
-    
-}
-
 final class HabitDetailsPresenter: HabitDetailsModuleInput {
     
     var habit: HabitEntity

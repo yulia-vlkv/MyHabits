@@ -12,10 +12,6 @@ protocol HabitsModuleInput: HabitsInteractorOutput, HabitsViewOutput {
     func createNewHabit()
 }
 
-protocol HabitsModuleOutput {
-   
-}
-
 final class HabitsPresenter: HabitsModuleInput {
     
     var router: HabitsRouterInput!

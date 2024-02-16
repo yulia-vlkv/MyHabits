@@ -28,7 +28,6 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        output = HabitDetailsPresenter(view: self, with: <#HabitEntity#>)
     }
     
     @available(*, unavailable)
@@ -79,7 +78,7 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     }
     
     @objc func changeTitle() {
-        output?.changeTitle(self, for: habit)
+//        output?.changeTitle(self, for: habit)
     }
     
 }

@@ -18,15 +18,18 @@ class HabitsRouter: HabitsRouterInput {
     weak var viewController: HabitsViewController!
     
     func openDetail(with habit: HabitEntity) {
-        let vc = HabitDetailsViewController(
+        guard let viewController = viewController else { return }
+        let vc = HabitDetailsViewController()
         viewController.navigationController?.pushViewController(vc, animated: true)
     }
     
     func openCreateHabit(){
-        let vc = EditHabitViewController()
-        let navVc = UINavigationController(rootViewController: vc)
-        navVc.modalPresentationStyle = .fullScreen
-        viewController.present(navVc, animated: true)
+        let habitVC = EditHabitViewController()
+        let navController = UINavigationController(rootViewController: habitVC)
+        viewController?.present(navController, animated: true)
+        
+//        vc.modalPresentationStyle = .fullScreen
+//        viewController?.present(vc, animated: true)
     }
     
 }

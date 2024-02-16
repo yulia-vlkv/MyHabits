@@ -12,11 +12,7 @@ protocol EditHabitModuleInput: EditHabitInteractorOutput, EditHabitViewOutput {
     func saveHabit()
 }
 
-protocol EditHabitModuleOutput {
-    
-}
-
-final class EditHabitPresenter: EditHabitModuleOutput {
+final class EditHabitPresenter: EditHabitModuleInput {
     
     var router: EditHabitRouterInput!
     var interactor: EditHabitInteractorInput!

@@ -27,14 +27,14 @@ protocol EditHabitViewOutput {
 
 class EditHabitViewController: UIViewController, EditHabitViewInput {
 
-    var output: EditHabitViewOutput!
+    var output: EditHabitModuleInput?
     
     let tableView = UITableView(frame: .zero, style: .grouped)
     let cellID = "CellID"
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        output = EditHabitPresenter(view: self) as? any EditHabitViewOutput
+        output = EditHabitPresenter(view: self)
     }
     
     @available(*, unavailable)
@@ -177,8 +177,8 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
     // Настройки NavigationBar
     func setNavigationBar(){
         self.navigationItem.title = "Создать"
-        self.navigationController!.navigationBar.tintColor = SelectedColors.setColor(style: .purple)
-        self.navigationController!.navigationBar.backgroundColor = SelectedColors.setColor(style: .navBarWhite)
+        self.navigationController?.navigationBar.tintColor = SelectedColors.setColor(style: .purple)
+        self.navigationController?.navigationBar.backgroundColor = SelectedColors.setColor(style: .navBarWhite)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(save))
