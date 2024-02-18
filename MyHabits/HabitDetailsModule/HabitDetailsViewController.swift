@@ -17,6 +17,7 @@ protocol HabitDetailsViewOutput {
     func numberOfRowsInSection(at section: Int) -> Int
     func cellForItem(_ tableView: UITableView, at: IndexPath) -> UITableViewCell
     func changeTitle(_ view: UIViewController, for habit: HabitEntity)
+    func tapEditButton()
 }
 
 class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
@@ -32,6 +33,7 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     }
     
     @objc func goToHabitsVC() {
+        // To do
 //        self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -58,7 +60,7 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     }
     
     @objc func tapEditButton() {
-
+        output?.tapEditButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {

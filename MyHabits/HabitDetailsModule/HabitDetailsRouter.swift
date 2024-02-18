@@ -11,6 +11,7 @@ import UIKit
 
 protocol HabitDetailsRouterInput {
     func backToMain()
+    func tapEditButton(for habit: HabitEntity?)
     
 }
 
@@ -22,9 +23,14 @@ class HabitDetailsRouter: HabitDetailsRouterInput {
         self.viewController.dismiss(animated: true)
     }
     
-    func tapEditButton() {
+    func tapEditButton(for habit: HabitEntity?) {
         let habitVC = EditHabitViewController()
-        guard let habit = habitVC.habit else { return }
+        let interactor = EditHabitInteractor()
+        let router = EditHabitRouter()
+        router.viewController = habitVC
+        let presenter = EditHabitPresenter(view: habitVC, interactor: interactor, router: router)
+        habitVC.output = presenter
+        guard let habit = habit else { return }
         habitVC.habit = habit
         let navController = UINavigationController(rootViewController: habitVC)
         viewController.present(navController, animated: true)

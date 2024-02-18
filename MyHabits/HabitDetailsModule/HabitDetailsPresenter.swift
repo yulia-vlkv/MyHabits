@@ -28,14 +28,13 @@ final class HabitDetailsPresenter: HabitDetailsModuleInput {
 //        self.habit = habit
     }
     
-//    let interactor = HabitsInteractor()
-//    let router = HabitsRouter()
-//    router.viewController = view
-//    let presenter = HabitsPresenter(view: view, interactor: interactor, router: router)
-//    view.output = presenter
     
     func viewDidLoad() {
         view.setupInitialState()
+    }
+    
+    func tapEditButton(){
+        router?.tapEditButton(for: interactor.habit)
     }
     
     func numberOfRowsInSection(at section: Int) -> Int {
