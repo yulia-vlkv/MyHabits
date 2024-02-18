@@ -58,6 +58,13 @@ class EditHabitInteractor: EditHabitInteractorInput {
         }
     }
     
+    /// Добавляет текущую дату в trackDates для переданной привычки.
+    /// - Parameter habit: Привычка, в которую добавится новая дата.
+    public func track(_ habit: HabitEntity) {
+        habit.trackDates.append(.init())
+        save()
+    }
+    
     init() {
         if userDefaults.value(forKey: "start_date") == nil {
             let startDate = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: Date())) ?? Date()
