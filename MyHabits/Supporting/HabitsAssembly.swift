@@ -20,7 +20,6 @@ class HabitsAssembly {
         return view
     }
 }
-
 //Далее следует пример о создания класса Assembly с дженериками
 //protocol View: AnyObject {
 //    var output: Presenter? { get set }

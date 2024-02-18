@@ -22,7 +22,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private func setupTabBar(){
    
 // Примеры вызова с использованием дженириков
-//        let habitsModule = Assembly<HabitsPresenter, HabitsInteractor, HabitsViewController, HabitsRouter>.makeModule()
+//        let habitTab = Assembly<HabitsPresenter, HabitsInteractor, HabitsViewController, HabitsRouter>.makeModule()
 //        let habitsModule = Assembly<HabitsDetialPresenter, HabitsDetialInteractor, HabitsDetialViewController, HabitsDetialRouter>.makeModule()
         
         let habitTab = HabitsAssembly.makeModule()

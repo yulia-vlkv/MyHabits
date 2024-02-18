@@ -50,7 +50,7 @@ class HabitsInteractor: HabitsInteractorInput {
     }
 
     
-    init() {
+    required init() {
         if userDefaults.value(forKey: "start_date") == nil {
             let startDate = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: Date())) ?? Date()
             userDefaults.setValue(startDate, forKey: "start_date")

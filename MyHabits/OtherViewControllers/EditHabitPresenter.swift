@@ -18,8 +18,10 @@ final class EditHabitPresenter: EditHabitModuleInput {
     var interactor: EditHabitInteractorInput!
     weak var view: EditHabitViewInput!
     
-    init(view: EditHabitViewInput) {
+    init(view: EditHabitViewInput, interactor: EditHabitInteractorInput, router: EditHabitRouterInput) {
         self.view = view
+        self.interactor = interactor
+        self.router = router
     }
     
     func viewDidLoad() {

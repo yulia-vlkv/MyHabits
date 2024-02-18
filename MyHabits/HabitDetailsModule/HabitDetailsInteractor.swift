@@ -20,7 +20,7 @@ protocol HabitDetailsInteractorOutput: AnyObject {
 
 class HabitDetailsInteractor: HabitDetailsInteractorInput {
 
-    weak var output: HabitDetailsInteractorOutput!
+    weak var output: HabitDetailsInteractorOutput?
     
     var habit: HabitEntity
     
@@ -70,5 +70,7 @@ class HabitDetailsInteractor: HabitDetailsInteractorInput {
             calendar.isDate(date, equalTo: trackDate, toGranularity: .day)
         }
     }
+    
+    
 
 }

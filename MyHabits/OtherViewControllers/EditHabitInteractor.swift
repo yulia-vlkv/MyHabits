@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EditHabitInteractorInput {
-    var shared: EditHabitInteractor { get }
+//    var shared: EditHabitInteractor { get }
     var habits: [HabitEntity] { get set }
     func save()
 }
@@ -19,7 +19,7 @@ protocol EditHabitInteractorOutput: AnyObject {
 
 /// Класс для сохранения и изменения привычек пользователя.
 /// Выполняет роль интерактора для EditHabitModule и HabitDetailsModule
-class EditHabitInteractor {
+class EditHabitInteractor: EditHabitInteractorInput {
     
     /// Синглтон для изменения состояния привычек из разных модулей.
     public static let shared: EditHabitInteractor = .init()
@@ -58,7 +58,7 @@ class EditHabitInteractor {
         }
     }
     
-    private init() {
+    init() {
         if userDefaults.value(forKey: "start_date") == nil {
             let startDate = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: Date())) ?? Date()
             userDefaults.setValue(startDate, forKey: "start_date")

@@ -75,15 +75,16 @@ class HabitCollectionViewCell: UICollectionViewCell {
     @objc func tapCheckButton() {
         guard let habit = habit else { return }
         
-//        if habit.isAlreadyTakenToday == false {
-//            HabitsStore.shared.track(habit)
-//            checkButton.backgroundColor = self.habit?.color
-//            checkmarkSetup()
-//            counterValueLabel.text = "\(habit.trackDates.count)"
-//            if let trackHabit = isChecked {
-//                trackHabit()
-//            }
-//        }
+        if habit.isAlreadyTakenToday == false {
+            
+            EditHabitInteractor.shared.track(habit)
+            checkButton.backgroundColor = self.habit?.color
+            checkmarkSetup()
+            counterValueLabel.text = "\(habit.trackDates.count)"
+            if let trackHabit = isChecked {
+                trackHabit()
+            }
+        }
     }
         
 // Меняет пустую кнопку на галочку

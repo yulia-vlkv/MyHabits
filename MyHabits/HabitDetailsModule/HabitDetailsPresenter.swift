@@ -15,15 +15,24 @@ protocol HabitDetailsModuleInput: HabitDetailsInteractorOutput, HabitDetailsView
 
 final class HabitDetailsPresenter: HabitDetailsModuleInput {
     
-    var habit: HabitEntity
+//    var habit: HabitEntity
     var router: HabitDetailsRouterInput!
     var interactor: HabitDetailsInteractorInput!
     weak var view: HabitDetailsViewInput!
     
-    init(view: HabitDetailsViewInput, with habit: HabitEntity) {
+    init(view: HabitDetailsViewInput, interactor: HabitDetailsInteractorInput, router: HabitDetailsRouterInput) {
         self.view = view
-        self.habit = habit
+        self.interactor = interactor
+        self.router = router
+        
+//        self.habit = habit
     }
+    
+//    let interactor = HabitsInteractor()
+//    let router = HabitsRouter()
+//    router.viewController = view
+//    let presenter = HabitsPresenter(view: view, interactor: interactor, router: router)
+//    view.output = presenter
     
     func viewDidLoad() {
         view.setupInitialState()
@@ -35,7 +44,7 @@ final class HabitDetailsPresenter: HabitDetailsModuleInput {
     
     func cellForItem(_ tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
         let datesTracked = interactor.dates.count - indexPath.item - 1
         cell.textLabel?.text = interactor.trackDateString(forIndex: datesTracked)
         cell.tintColor = SelectedColors.setColor(style: .purple)

@@ -32,16 +32,6 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
     let tableView = UITableView(frame: .zero, style: .grouped)
     let cellID = "CellID"
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        output = EditHabitPresenter(view: self)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
@@ -189,8 +179,8 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
     }
     
     @objc func save() {
-
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
+        output?.saveHabit()
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
         cancel()
     }
     

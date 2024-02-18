@@ -16,7 +16,7 @@ final class HabitsPresenter: HabitsModuleInput {
     
     var router: HabitsRouterInput!
     var interactor: HabitsInteractorInput!
-    weak var view: HabitsViewInput!
+    var view: HabitsViewInput!
     
     init(view: HabitsViewInput, interactor: HabitsInteractorInput, router: HabitsRouterInput) {
         self.view = view

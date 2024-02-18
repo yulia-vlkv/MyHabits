@@ -15,21 +15,31 @@ protocol HabitsRouterInput {
 
 class HabitsRouter: HabitsRouterInput {
     
-    weak var viewController: HabitsViewController!
+    var viewController: HabitsViewController!
+    
+    required init() {
+        self.viewController = HabitsViewController()
+    }
     
     func openDetail(with habit: HabitEntity) {
-        guard let viewController = viewController else { return }
-        let vc = HabitDetailsViewController()
-        viewController.navigationController?.pushViewController(vc, animated: true)
+        let view = HabitDetailsViewController()
+        let interactor = HabitDetailsInteractor(habit: habit)
+        let router = HabitDetailsRouter()
+        router.viewController = view
+        let presenter = HabitDetailsPresenter(view: view, interactor: interactor, router: router)
+        view.output = presenter
+        viewController.navigationController?.pushViewController(view, animated: true)
     }
     
     func openCreateHabit(){
-        let habitVC = EditHabitViewController()
-        let navController = UINavigationController(rootViewController: habitVC)
+        let view = EditHabitViewController()
+        let interactor = EditHabitInteractor()
+        let router = EditHabitRouter()
+        router.viewController = view
+        let presenter = EditHabitPresenter(view: view, interactor: interactor, router: router)
+        view.output = presenter
+        let navController = UINavigationController(rootViewController: view)
         viewController?.present(navController, animated: true)
-        
-//        vc.modalPresentationStyle = .fullScreen
-//        viewController?.present(vc, animated: true)
     }
     
 }

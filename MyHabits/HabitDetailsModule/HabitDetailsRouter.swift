@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol HabitDetailsRouterInput {
@@ -21,14 +22,15 @@ class HabitDetailsRouter: HabitDetailsRouterInput {
         self.viewController.dismiss(animated: true)
     }
     
-    @objc func tapEditButton() {
-//        let habitVC = EditHabitViewController()
-//        habitVC.habit = habit
-//        let navController = UINavigationController(rootViewController: habitVC)
-//        self.present(navController, animated: true, completion: nil)
+    func tapEditButton() {
+        let habitVC = EditHabitViewController()
+        guard let habit = habitVC.habit else { return }
+        habitVC.habit = habit
+        let navController = UINavigationController(rootViewController: habitVC)
+        viewController.present(navController, animated: true)
     }
     
-    @objc func goToHabitsVC() {
-//        self.navigationController?.popToRootViewController(animated: true)
+    func goToHabitsVC() {
+        viewController.navigationController?.popToRootViewController(animated: true)
     }
 }

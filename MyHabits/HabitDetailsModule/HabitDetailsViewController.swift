@@ -12,7 +12,7 @@ protocol HabitDetailsViewInput: AnyObject {
 }
 
 protocol HabitDetailsViewOutput {
-    var habit: HabitEntity { get set }
+//    var habit: HabitEntity { get set }
     func viewDidLoad()
     func numberOfRowsInSection(at section: Int) -> Int
     func cellForItem(_ tableView: UITableView, at: IndexPath) -> UITableViewCell
@@ -21,20 +21,11 @@ protocol HabitDetailsViewOutput {
 
 class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     
-    var output: HabitDetailsViewOutput!
+    var output: HabitDetailsModuleInput?
     
     let tableView = UITableView(frame: .zero, style: .grouped)
     let cellID = "CellID"
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
@@ -73,7 +64,7 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-        navigationItem.title = output?.habit.name
+//        navigationItem.title = output?.habit.name
         NotificationCenter.default.addObserver(self, selector: #selector(changeTitle), name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
     }
     
