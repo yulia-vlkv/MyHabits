@@ -20,6 +20,7 @@ class HabitsAssembly {
         return view
     }
 }
+
 //Далее следует пример о создания класса Assembly с дженериками
 //protocol View: AnyObject {
 //    var output: Presenter? { get set }
@@ -40,8 +41,7 @@ class HabitsAssembly {
 //    var router: Router { get set }
 //    var interactor: Interactor { get set }
 //    
-//    init(view: View, interactor: Interactor, router: Router)
-//    
+//    init(view: View, interactor: Interactor, router: Router)   
 //}
 //
 //class MyPresenter: Presenter {

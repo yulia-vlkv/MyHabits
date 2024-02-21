@@ -89,7 +89,7 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
         textField.textColor = .blue
         textField.placeholder = "Бегать по утрам, спать 8 часов и т.п."
         textField.returnKeyType = UIReturnKeyType.done
-        textField.addTarget(EditHabitViewController.self, action: #selector(updateSaveButtonState), for: .editingChanged)
+        textField.addTarget(self, action: #selector(updateSaveButtonState), for: .editingChanged)
         textField.toAutoLayout()
         return textField
     }()
@@ -107,7 +107,7 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
         button.layer.cornerRadius = 15
         button.frame.size = CGSize(width: 30, height: 30)
         button.backgroundColor = .orange
-        button.addTarget(EditHabitViewController.self, action: #selector(pickColor), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pickColor), for: .touchUpInside)
         button.toAutoLayout()
         return button
     }()
@@ -132,7 +132,7 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .wheels
         picker.datePickerMode = .time
-        picker.addTarget(EditHabitViewController.self, action: #selector (chooseTime), for: .valueChanged)
+        picker.addTarget(self, action: #selector (chooseTime), for: .valueChanged)
         picker.toAutoLayout()
         return picker
     }()
@@ -155,7 +155,7 @@ class EditHabitViewController: UIViewController, EditHabitViewInput {
         button.backgroundColor = .white
         button.setTitle("Удалить привычку", for: .normal)
         button.setTitleColor(.red, for: .normal)
-        button.addTarget(EditHabitViewController.self, action: #selector(showAlertController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showAlertController), for: .touchUpInside)
         button.toAutoLayout()
         return button
     }()

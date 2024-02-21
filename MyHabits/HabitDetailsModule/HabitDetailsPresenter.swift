@@ -11,11 +11,13 @@ import UIKit
 
 protocol HabitDetailsModuleInput: HabitDetailsInteractorOutput, HabitDetailsViewOutput {
     func viewDidLoad()
+    func addDate(at date: IndexPath) 
+    func setTitle() -> String
 }
 
 final class HabitDetailsPresenter: HabitDetailsModuleInput {
+
     
-//    var habit: HabitEntity
     var router: HabitDetailsRouterInput!
     var interactor: HabitDetailsInteractorInput!
     weak var view: HabitDetailsViewInput!
@@ -24,10 +26,7 @@ final class HabitDetailsPresenter: HabitDetailsModuleInput {
         self.view = view
         self.interactor = interactor
         self.router = router
-        
-//        self.habit = habit
     }
-    
     
     func viewDidLoad() {
         view.setupInitialState()
@@ -58,8 +57,17 @@ final class HabitDetailsPresenter: HabitDetailsModuleInput {
         return cell
     }
     
-    func changeTitle(_ view: UIViewController, for habit: HabitEntity) {
-        view.navigationController?.navigationItem.title = habit.name
+    func addDate(at date: IndexPath) {
+        let selectedHabit = interactor.habit
+        let item = interactor.dates.count - date.item - 1
+        let selectedDate = interactor.dates[item]
+        print(selectedDate)
+
+        interactor.track(date: selectedDate, for: selectedHabit)
+    }
+    
+    func setTitle() -> String {
+        interactor.habit.name
     }
     
 }

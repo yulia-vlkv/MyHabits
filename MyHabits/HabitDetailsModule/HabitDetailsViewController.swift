@@ -9,14 +9,13 @@ import UIKit
 
 protocol HabitDetailsViewInput: AnyObject {
     func setupInitialState()
+    func reloadData()
 }
 
 protocol HabitDetailsViewOutput {
-//    var habit: HabitEntity { get set }
     func viewDidLoad()
     func numberOfRowsInSection(at section: Int) -> Int
     func cellForItem(_ tableView: UITableView, at: IndexPath) -> UITableViewCell
-    func changeTitle(_ view: UIViewController, for habit: HabitEntity)
     func tapEditButton()
 }
 
@@ -33,8 +32,7 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     }
     
     @objc func goToHabitsVC() {
-        // To do
-//        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func setupInitialState() {
@@ -66,12 +64,16 @@ class HabitDetailsViewController: UIViewController, HabitDetailsViewInput {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-//        navigationItem.title = output?.habit.name
+        navigationItem.title = output?.setTitle()
         NotificationCenter.default.addObserver(self, selector: #selector(changeTitle), name: NSNotification.Name(rawValue: "changeTitle"), object: nil)
     }
     
     @objc func changeTitle() {
-//        output?.changeTitle(self, for: habit)
+        navigationItem.title = output?.setTitle()
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
     
 }
@@ -102,8 +104,11 @@ extension HabitDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return tableView.deselectRow(at: indexPath, animated: true)
+        output?.addDate(at: indexPath)
+        reloadData()
     }
+    
 }
 

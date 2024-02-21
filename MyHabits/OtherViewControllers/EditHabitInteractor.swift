@@ -65,6 +65,11 @@ class EditHabitInteractor: EditHabitInteractorInput {
         save()
     }
     
+    public func track(date: Date, for habit: HabitEntity) {
+        habit.trackDates.append(date)
+        save()
+    }
+    
     init() {
         if userDefaults.value(forKey: "start_date") == nil {
             let startDate = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: Date())) ?? Date()

@@ -77,7 +77,7 @@ class HabitsViewController: UIViewController, HabitsViewInput {
         super.viewWillAppear(true)
         
         EditHabitInteractor.shared.habits.sort(by: { $0.date < $1.date })
-        habitsCollectionView.reloadData()
+        output?.reloadIfNeeded()
     }
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 protocol HabitsModuleInput: HabitsInteractorOutput, HabitsViewOutput {
     func createNewHabit()
+    func reloadIfNeeded()
 }
 
 final class HabitsPresenter: HabitsModuleInput {
@@ -65,6 +66,10 @@ final class HabitsPresenter: HabitsModuleInput {
         case 1: router.openDetail(with: interactor.getHabit(with: indexPath.row))
         default: break
         }
+    }
+    
+    func reloadIfNeeded(){
+        view.reloadData()
     }
     
 }

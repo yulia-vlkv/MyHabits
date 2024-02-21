@@ -12,6 +12,7 @@ protocol HabitDetailsInteractorInput {
     var dates: [Date] { get }
     func trackDateString(forIndex index: Int) -> String? 
     func habit(_ habit: HabitEntity, isTrackedIn date: Date) -> Bool 
+    func track(date: Date, for habit: HabitEntity)
 }
 
 protocol HabitDetailsInteractorOutput: AnyObject {
@@ -71,6 +72,7 @@ class HabitDetailsInteractor: HabitDetailsInteractorInput {
         }
     }
     
-    
-
+    func track(date: Date, for habit: HabitEntity) {
+        EditHabitInteractor.shared.track(date: date, for: habit)
+    }
 }

@@ -30,8 +30,8 @@
             filePath = "MyHabits/HabitsModule/HabitsInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "save()"
             landmarkType = "7">
             <Locations>
@@ -78,9 +78,9 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "init(view:interactor:router:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -94,10 +94,10 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "HabitDetailsPresenter"
-            landmarkType = "3">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "init(view:interactor:router:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "9152EBB1-7037-4868-B839-C168C5C5C65A - 42f34b804afc4d43"
@@ -188,8 +188,8 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "dates"
             landmarkType = "24">
          </BreakpointContent>
@@ -204,9 +204,9 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "tapEditButton()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "numberOfRowsInSection(at:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -252,8 +252,8 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
             <Locations>
@@ -348,8 +348,8 @@
             filePath = "MyHabits/HabitsModule/HabitsPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "cellForItem(_:at:)"
             landmarkType = "7">
             <Locations>
@@ -390,14 +390,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "12DBD30D-B2DE-4955-98DC-03BCB5A0F891"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "goToHabitsVC()"
             landmarkType = "7">
             <Locations>
@@ -444,8 +444,8 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "setupInitialState()"
             landmarkType = "7">
             <Locations>
@@ -492,8 +492,8 @@
             filePath = "MyHabits/HabitDetailsModule/HabitDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "tapEditButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -527,6 +527,117 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "tapEditButton(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E85BF3AF-0C1B-407F-864B-0843EC90609C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHabits/HabitDetailsModule/EditHabitViewController .swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "updateSaveButtonState()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4903E0B-0037-4DFC-B921-4062043A1FE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHabits/OtherViewControllers/EditHabitPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EEA7CAA2-AF30-461B-88BF-9BD8364B064F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "addDate(at:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EEA7CAA2-AF30-461B-88BF-9BD8364B064F - 2da2942ab04e9a74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyHabits.HabitDetailsPresenter.addDate(at: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "MyHabits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iuliiavolkova/Documents/Development/RandomProjects/MyHabits/MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "440">
+               </Location>
+               <Location
+                  uuid = "EEA7CAA2-AF30-461B-88BF-9BD8364B064F - 2da2942ab04e9a74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyHabits.HabitDetailsPresenter.addDate(at: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "MyHabits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iuliiavolkova/Documents/Development/RandomProjects/MyHabits/MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  uuid = "EEA7CAA2-AF30-461B-88BF-9BD8364B064F - 2da2942ab04e9a74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyHabits.HabitDetailsPresenter.addDate(at: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "MyHabits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iuliiavolkova/Documents/Development/RandomProjects/MyHabits/MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "572">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B7C193C-8CFA-4337-91B6-ED9068E9A1D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHabits/HabitDetailsModule/HabitDetailsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "addDate(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
