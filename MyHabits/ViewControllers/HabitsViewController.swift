@@ -37,7 +37,7 @@ class HabitsViewController: UIViewController {
     }
     
     @objc func addHabit(){
-        let habitsCreateVC = HabitViewController ()
+        let habitsCreateVC = EditHabitViewController ()
         let habitsCreateNavVC = UINavigationController(rootViewController: habitsCreateVC)
         habitsCreateNavVC.modalPresentationStyle = .fullScreen
         present(habitsCreateNavVC, animated: true)

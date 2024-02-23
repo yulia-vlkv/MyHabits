@@ -1,5 +1,5 @@
 //
-//  HabitsDetailsViewController.swift
+//  EditHabitViewController.swift
 //  MyHabits
 //
 //  Created by Iuliia Volkova on 27.07.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitViewController: UIViewController {
+class EditHabitViewController: UIViewController {
     
     var habit: Habit? {
         didSet {
@@ -153,7 +153,7 @@ class HabitViewController: UIViewController {
             HabitsStore.shared.habits.removeAll{$0 == self.habit}
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "goToHabitsVC"), object: nil)
             self.dismiss(animated: true, completion: {
-                let mainHabbitVC = HabitViewController ()
+                let mainHabbitVC = EditHabitViewController()
                 self.present(mainHabbitVC, animated: true, completion: nil)
             })
         }
@@ -307,14 +307,14 @@ class HabitViewController: UIViewController {
 }
 
 // Расширение для клавиатуры
-extension  HabitViewController: UITextFieldDelegate {
+extension  EditHabitViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
 
-extension HabitViewController : UIColorPickerViewControllerDelegate {
+extension EditHabitViewController : UIColorPickerViewControllerDelegate {
     
     //  Вызывается, когда цвет выбран (перебор цвета).
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {

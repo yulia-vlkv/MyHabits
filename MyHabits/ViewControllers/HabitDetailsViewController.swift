@@ -75,7 +75,7 @@ class HabitDetailsViewController: UIViewController {
     }
     
     @objc func tapEditButton() {
-        let habitVC = HabitViewController()
+        let habitVC = EditHabitViewController()
         habitVC.habit = habit
         let navController = UINavigationController(rootViewController: habitVC)
         self.present(navController, animated: true, completion: nil)
